@@ -1,0 +1,1119 @@
+\documentclass[aps,reprint,notitlepage,nofootinbib,superscriptaddress]{revtex4-1}
+\usepackage{pdfsync}
+\usepackage{amsmath}    % need for subequations
+\usepackage{amsfonts} % note how statements can be commented out
+\usepackage{amssymb}
+\usepackage{MnSymbol}
+\usepackage{mathrsfs} % define the \mathscr font
+\usepackage{textcomp} % to define \texttildelow font
+\usepackage{bbm}
+\usepackage{float}    % suppress float figures and tables
+\usepackage{accents} % put tilde under symbols using 
+\usepackage{natbib}
+\usepackage{graphicx}   
+\usepackage[caption=false]{subfig}
+\usepackage{mathtools}
+\usepackage{graphics}
+\usepackage{epsfig}
+\usepackage{multirow}
+\usepackage{bibentry}
+\usepackage{braket}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{listings}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{slashed}
+\usepackage{xfrac}
+\usepackage{xcolor}
+\usepackage{cases}
+\usepackage[retainorgcmds]{IEEEtrantools}
+\usepackage[pdftex, citecolor=blue, urlcolor=blue, linkcolor=blue, colorlinks=true, bookmarksopen=true]{hyperref}
+% \numberwithin{equation}{section}
+\allowdisplaybreaks  % allow breaks inside aligned equations
+
+\setcounter{secnumdepth}{2}
+
+
+
+\newcommand{\pd}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\Cc}{\mathbb{C}}
+\newcommand{\Ss}{\mathbb{S}}
+% \newcommand{\Qq}{\mathrm{q}}
+\newcommand{\pT}{\hat{+}}
+\newcommand{\mT}{\hat{-}}
+\newcommand{\muT}{\hat{\mu}}
+\newcommand{\nuT}{\hat{\nu}}
+\newcommand{\muL}{\tilde{\mu}}
+\newcommand{\nuL}{\tilde{\nu}}
+\newcommand{\uniT}[1]{\mathring{#1}}
+\newcommand{\itP}[1]{\hat{#1}}
+\newcommand{\lF}[1]{\tilde{#1}}
+\newcommand{\Pp}{\mathbb{P}}
+\newcommand{\Qq}{\mathbb{Q}}
+\def\wh{\widehat}
+
+
+
+\begin{document}
+\title{Interpolating conformal algebra \texorpdfstring{$(3+1)$}{Lg}  between the instant form
+and the front form of relativistic dynamics}
+\author{Chueng-Ryong Ji}
+\affiliation{Department of Physics, North Carolina State University, Raleigh, North Carolina 27695-8202, USA}
+\author{Hariprashad Ravikumar}
+\affiliation{Department of Physics, New Mexico State University, Las Cruces, New Mexico 88003-8001, USA}
+
+\begin{abstract}
+The instant form and the front form of relativistic dynamics introduced by P. M. Dirac \cite{Dirac1949} in 1949 can be interpolated by introducing an interpolation angle parameter $\delta$ spanning between the instant form dynamics (IFD) at $\delta=0$ and the front form dynamics, which is now known as the light-front dynamics (LFD) at $\delta=\frac{\pi}{4}$. We extend the Poincar\'e algebra \cite{Ji2001} interpolation between instant and light-front time quantizations to the conformal algebra $(3+1)$. Among the five more generators in the conformal algebra, only one generator, known as the dilatation, is kinematic for the entire region of the interpolation angle ($0\leq\delta\leq\frac{\pi}{4}$). We find that one more generator from the Special Conformal Transformation (SCT) becomes kinematic in the light-front limit ($\delta=\frac{\pi}{4}$), i.e., the LFD. We propose the interpolation method for conformal group $SO(4,2)$. We present the unitary representation and 4-dimensional matrix representation of the conformal group.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:introduction}
+
+In 1949, for the study of relativistic particle systems, Dirac \cite{Dirac1949} proposed the three forms of relativistic dynamics: the instant form ($x^{0}=0$), the front form ($x^{+}=(x^{0}+x^{3})/\sqrt{2}$=0) and the point form ($x^{\mu}x_{\mu}=a^{2}>0, x^{0}>0$).
+While the instant form dynamics (IFD) of quantum field theory is produced by the quantization at the equal time $t=x^{0}$, the light-front dynamics (LFD) produced by the quantization at equal light-front time $\tau \equiv (x^{0}+x^{3})/\sqrt{2}=x^{+}$ ($c=1$ unit is taken here).
+
+One of the main reasons why the LFD is advantageous over IFD may be attributed to the energy-momentum dispersion relation. For a particle with mass of $m$ and four-momentum of $k=(k^{0},k^{1},k^{2},k^{3})$, the irrational energy-momentum dispersion relation of the particle at equal-$t$ (IFD) is given by
+\begin{align}
+  k^{0}=\sqrt{\mathbf{k}^{2}+m^{2}}, \label{eqn:E-P_relation_IF}
+\end{align}
+where the energy $k^{0}$ is conjugate to $t$ and the three momentum vector $\mathbf{k}$ is given by $\mathbf{k}=(k^{1},k^{2},k^{3})$.
+On the contrary, the corresponding rational energy-momentum relation at equal-$\tau$ (LFD) is given by
+\begin{align}
+  k^{-}=\dfrac{\mathbf{k}_{\perp}^{2}+m^{2}}{k^{+}}, \label{eqn:E-P_relation_LF}
+\end{align}
+where the light-front energy $k^{-}=(k^{0}-k^{3})/\sqrt{2}$ is conjugate to $\tau$, and the light-front momentum $k^{+}=(k^{0}+k^{3})/\sqrt{2}$ and the orthogonal momenta $\mathbf{k}_{\perp}=(k^{1},k^{2})$. This LFD energy-momentum relation not only makes the relation simpler but also correlates the sign of $k^{-}$ and $k^{+}$.
+When the system is evolving in the future direction (i.e., positive $\tau$), for $k^{-}$ to be positive, $k^{+}$ also has to be positive. This feature makes the LFD quite distinct from other forms of relativistic Hamiltonian dynamics, and this also prevents some processes from occurring in the LFD; for example, the spontaneous pair production from the vacuum is forbidden in LFD unless $k^{+}=0$ for both particles due to the conservation of momentum.
+
+However, this sign correlation does not exist in IFD, and the vacuum structure appears much more complicated than in the LFD case due to the quantum fluctuations. 
+
+\begin{table*}[t]
+  \caption{\label{tab:Kinematic_and_dynamic_generators_for_different_interoplation_angles}Kinematic and dynamic generators for different interpolation angles \cite{Ji2001, Ji2012}}
+    \begin{ruledtabular}
+      \begin{tabular}{lcc}
+	% \hline
+	% \hline
+	& Kinematic & Dynamic \\
+	\hline
+	\rule{0pt}{3ex} $\delta=0$ & $\mathcal{K}^{\hat{1}}=-J^{2}, \mathcal{K}^{\hat{2}}=J^{1}, J^{3}, P^{1}, P^{2}, P^{3}$ & $\mathcal{D}^{\hat{1}}=-K^{1}, \mathcal{D}^{\hat{2}}=-K^{2}, K^{3}, P^{0}$\\
+	$0\leq\delta<\pi/4$ & $\mathcal{K}^{\hat{1}}, \mathcal{K}^{\hat{2}}, J^{3}, P^{1}, P^{2}, P_{\mT}$ & $\mathcal{D}^{\hat{1}}, \mathcal{D}^{\hat{2}}, K^{3}, P_{\pT}$\\
+	$\delta=\pi/4$ & $\mathcal{K}^{\hat{1}}=-E^{1}, \mathcal{K}^{\hat{2}}=-E^{2}, J^{3}, K^{3}, P^{1}, P^{2}, P^{+}$ & $\mathcal{D}^{\hat{1}}=-F^{1}, \mathcal{D}^{\hat{2}}=-F^{2}, P^{-}$\\
+	% \hline
+	% \hline
+      \end{tabular}
+    \end{ruledtabular}
+\end{table*}
+
+
+Even the Poincar\'e algebra is drastically changed in the LFD compared to the IFD.
+Among the ten Poincar\'e generators, we have the maximum number (seven) of kinematic (or interaction independent) operators, which leave the state at $\tau=0$ unchanged. Indeed, the maximum number of kinematic generators allowed in relativistic dynamics is seven. The LFD is the only one that possesses this maximum number of kinematic generators.
+
+Effectively, the LFD maximizes the capacity to
+describe hadrons by saving a lot of dynamical efforts in getting the QCD solutions that reflect the full Poincar\'e symmetries.
+
+%%%%%%%%%%%%%%
+To interpolate the forms of relativistic quantum field theory between IFD and LFD, we take the following interpolating space-time coordinates  \cite{Ji2001, Hornbostel1992, Ji1996, Ji2012, Ji2015EM, Ji2015SP, Ji2018QED, Ji2021QCD} which is defined as a transformation from the ordinary space-time coordinates $x^{\muT}=\mathcal{R}^{\muT}_{\phantom{\mu}{\nu}}x^{\nu}$, i.e.,
+\begin{align}\label{eqn:interpolation_angle_definition}
+  \begin{pmatrix}
+    x^{\hat{+}}\\
+    x^{\hat{1}}\\
+    x^{\hat{2}}\\
+    x^{\hat{-}}
+  \end{pmatrix}=
+  \begin{pmatrix}
+    \cos\delta & 0  & 0  & \sin\delta \\
+    0          & 1  & 0  & 0 \\
+    0          & 0  & 1  & 0 \\
+    \sin\delta & 0  & 0  & -\cos\delta
+  \end{pmatrix}
+  \begin{pmatrix}
+    x^{0}\\
+    x^{1}\\
+    x^{2}\\
+    x^{3}
+  \end{pmatrix},
+\end{align}
+in which the interpolation angle is allowed to run from $0^\circ$ (IFD) through $45^\circ$ (LFD), $0\le \delta \le \frac{\pi}{4}$. The interpolating coordinates $x^{\itP{\pm}}$ in the limit $\delta\rightarrow\pi/4$ become the light-front coordinates $x^{\pm}=(x^{0}\pm x^{3})/\sqrt{2}$ without  ``\textasciicircum''. Note that we interpolate from $-x^3$, so in the limit $\delta\rightarrow\pi/4$, the interpolating coordinates $x^{\itP{-}}$ is $-x^3$ (or $-z$) axis. Since the perpendicular components remain the same ($x^{\itP{j}}=x^{j},x_{\itP{j}}=x_{j}, j=1,2$), we will omit the ``\textasciicircum''  notation unless necessary from now on for the perpendicular indices $j=1,2$ in a four-vector.
+
+ In this interpolating basis, the metric becomes
+\begin{align}\label{eqn:g_munu_interpolation}
+  g^{\hat{\mu}\hat{\nu}}
+  = g_{\hat{\mu}\hat{\nu}}
+  =
+  \begin{pmatrix}
+    \mathbb{C} & 0  & 0  & \mathbb{S} \\
+    0 & -1 & 0  & 0 \\
+    0 & 0  & -1 & 0 \\
+    \mathbb{S} & 0  & 0  & -\mathbb{C}
+  \end{pmatrix},
+\end{align}
+where $\mathbb{S}=\sin2\delta$ and $\mathbb{C}=\cos2\delta$. The lower index variables $x_{\hat{+}}$ and $x_{\hat{-}}$ are related to the upper index variables as $x_{\hat{+}}=g_{\hat{+}\hat{+}}x^{\hat{+}}+g_{\hat{+}\hat{-}}x^{\hat{-}}=\mathbb{C}x^{\hat{+}}+\mathbb{S}x^{\hat{-}}$ and $x_{\hat{-}}=g_{\hat{-}\hat{+}}x^{\hat{+}}+g_{\hat{-}\hat{-}}x^{\hat{-}}=-\mathbb{C}x^{\hat{-}}+\mathbb{S}x^{\hat{+}}$.
+
+The same interpolation
+applies to any four-vectors like the four-momentum and four-generators of special conformal transformation. The details of the relationship between the
+interpolating variables and the usual space-time variables
+can be seen in our previous works  \cite{Ji2001, Hornbostel1992, Ji1996, Ji2012, Ji2015EM, Ji2015SP, Ji2018QED, Ji2021QCD}.
+
+For interpolating the Poincar\'e group, let's start with the Poincar\'e matrix in IFD
+\begin{align}\label{eqn:J_mu_nu_IF}
+  M_{\mu\nu}=\begin{pmatrix}
+     0&-K^1&-K^2&-K^3\\
+     K^1&0&J^3&-J^2\\
+     K^2&-J^3&0&J^1\\
+     K^3&J^2&-J^1&0
+     \end{pmatrix}
+\end{align}
+in interpolation form, it will transform as
+\begin{align}\label{eqn:Poincare_Matrix_Interpolation_superscripts}
+  M_{\muT\nuT}
+  &=\mathcal{R}_{\hat{\mu}}^{{\alpha}}M_{\alpha\beta}\mathcal{R}_{\hat{\nu}}^{{\beta}}=\begin{pmatrix}
+    0 & {\mathcal{D}}^{\itP{1}} & {\mathcal{D}}^{\itP{2}} & {K}^{3}\\
+    -{\mathcal{D}}^{\itP{1}} & 0 & {J}^{3} & -{\mathcal{K}}^{\itP{1}}\\
+    -{\mathcal{D}}^{\itP{2}} & -{J}^{3} & 0 & -{\mathcal{K}}^{\itP{2}}\\
+    -{K}^{3} & {\mathcal{K}}^{\itP{1}} & {\mathcal{K}}^{\itP{2}} & 0
+  \end{pmatrix},
+\end{align}
+and
+\begin{align}
+  M^{\muT\nuT}
+  =
+  g^{\muT\itP{\alpha}}M_{\itP{\alpha}\itP{\beta}}g^{\itP{\beta}\nuT}
+  =
+  \begin{pmatrix}
+    0 & {E}^{\itP{1}} & {E}^{\itP{2}} & -{K}^{3}\\
+    -{E}^{\itP{1}} & 0 & {J}^{3} & -{F}^{\itP{1}}\\
+    -{E}^{\itP{2}} & -{J}^{3} & 0 & -{F}^{\itP{2}}\\
+    {K}^{3} & {F}^{\itP{1}} & {F}^{\itP{2}} & 0
+  \end{pmatrix}
+\end{align}
+where
+\begin{align}\label{eqn:E_F_D_K_Definition_Interpolation_Angle}
+  &E^{\itP{1}}=J^{2}\sin\delta+K^{1}\cos\delta,
+  &&\mathcal{K}^{\itP{1}}=-K^{1}\sin\delta-J^{2}\cos\delta, \nonumber\\
+  &E^{\itP{2}}=K^{2}\cos\delta-J^{1}\sin\delta,
+  &&\mathcal{K}^{\itP{2}}=J^{1}\cos\delta-K^{2}\sin\delta, \nonumber\\
+  &F^{\itP{1}}=K^{1}\sin\delta-J^{2}\cos\delta,
+  &&\mathcal{D}^{\itP{1}}=-K^{1}\cos\delta+J^{2}\sin\delta, \nonumber\\
+  &F^{\itP{2}}=K^{2}\sin\delta+J^{1}\cos\delta,
+  &&\mathcal{D}^{\itP{2}}=-J^{1}\sin\delta-K^{2}\cos\delta.
+\end{align}
+In the limit $\delta=\pi/4$), the interpolating $E^{\itP{j}}$ and $F^{\itP{j}}$ will coincide with the usual $E^{j}$ and $F^{j}$ of LFD.
+Note here that the ``\textasciicircum'' notation is reinstated for $j=1, 2$ to emphasize the angle $\delta$ dependence and that the position of the indices on $K, J, E, F, \mathcal{D}, \mathcal{K}$ won't matter as they are not the four-vectors: i.e. $F_{\itP{1}}=F^{\itP{1}}$, etc.
+
+The generalized Poincar\'e algebra for any interpolation angle can be found in \cite{Ji2001}. 
+Among the ten Poincar\'e generators, the six generators ($\mathcal{K}^{\itP{1}}, \mathcal{K}^{\itP{2}}, J^{3}, P_{1}, P_{2}, P_{\mT}$) are always kinematic in the sense that the $x^{\pT}=0$ plane is intact under the transformations generated by them.
+As discussed in \cite{Ji2001, Ji2012}, the operator $K^{3}=M_{\pT\mT}$ is dynamical in the region where $0\leq\delta<\pi/4$ but becomes kinematic in the light-front limit ($\delta=\pi/4$). To understand this, note that $[P^{\hat{+}},K^{\hat{3}}]=i(\mathbb{S}P^{\hat{+}}-\mathbb{C}P^{\hat{-}})\rightarrow iP^{\hat{+}}$ as $\delta\rightarrow\pi/4$. Similarly we have $[x^{\hat{+}},K^{\hat{3}}]=i(\mathbb{S}x^{\hat{+}}-\mathbb{C}x^{\hat{-}})\rightarrow i x^{\hat{+}}$ as $\delta\rightarrow\pi/4$. Therefore the instant defined by $x^+=0$ becomes invariant under longitudinal boosts as we move to the light front.
+The set of kinematic and dynamic generators depending on the interpolation angle are summarized in Table.~\ref{tab:Kinematic_and_dynamic_generators_for_different_interoplation_angles}.
+Since the kinematic transformations do not alter $x^{\pT}$, the individual time-ordered amplitude must be invariant under the kinematic transformations \cite{Ji2018QED}.
+
+In section \ref{sec:conformal}, we will extend this interpolation method to the conformal group, which has the Poincar\'e group as a subgroup. The interpolation method for conformal group $SO(4,2)$ is proposed in In section \ref{conformalsimpler}. In section \ref{unitary}, we will discuss the unitary representation of the conformal group and the dispersion relation in special conformal transformation. Appendix~\ref{sec:appconformal} will show both extreme limits (IFD and LFD) of the conformal algebra in the interpolation form. Finally, in Appendix~\ref{4x4}, we presented the $4\times4$ matrix representation of all conformal generators. 
+
+\begin{table*}[t]
+  \caption{\label{tab:Kinematic_and_dynamic_generators_for_different_interoplation_angles_conformal}Kinematic and dynamic conformal generators for different interpolation angles}
+    \begin{ruledtabular}
+       \begin{tabular}{lcc}
+	%\hline
+	 %\hline
+	Interpolation angle & Kinematic & Dynamic \\
+	\hline
+	\rule{0pt}{3ex} $\delta=0$ & $\mathcal{K}^{\hat{1}}=-J^{2},~ \mathcal{K}^{\hat{2}}=J^{1},~ J^{3}, P^{1}, P^{2}, P^{3}$, $D$ & $\mathcal{D}^{\hat{1}}=-K^{1},~ \mathcal{D}^{\hat{2}}=-K^{2},~ K^{3}, P^{0}$, $\mathfrak{K}_{{0}}$, $\mathfrak{K}_{{1}}$, $\mathfrak{K}_{{2}}$, $\mathfrak{K}_{{3}}$\\
+	$0\leq\delta<\pi/4$ & $\mathcal{K}^{\hat{1}}, \mathcal{K}^{\hat{2}}, J^{3}, P^{1}, P^{2}, P_{\mT}$, $D$ & $\mathcal{D}^{\hat{1}}, \mathcal{D}^{\hat{2}}, K^{3}, P_{\pT}$, $\mathfrak{K}_{\hat{+}}$, $\mathfrak{K}_{\hat{1}}$, $\mathfrak{K}_{\hat{2}}$, $\mathfrak{K}_{\hat{-}}$\\
+	$\delta=\pi/4$ & $\mathcal{K}^{\hat{1}}=-E^{1},~ \mathcal{K}^{\hat{2}}=-E^{2},~ J^{3}, K^{3}, P^{1}, P^{2}, P_{-}$, $D$, $\mathfrak{K}_{{-}}$& $\mathcal{D}^{\hat{1}}=-F^{1},~ \mathcal{D}^{\hat{2}}=-F^{2},~ P_{+}$, $\mathfrak{K}_{{+}}$, $\mathfrak{K}_{{1}}$, $\mathfrak{K}_{{2}}$\\
+	%\hline
+	 %\hline
+      \end{tabular}
+    \end{ruledtabular}
+\end{table*}
+
+
+
+\section{Interpolating conformal algebra}
+\label{sec:conformal}
+The conformal transformation $x\longmapsto x'$ can be defined as \cite{Francesco,Blumenhagen}, 
+\begin{align}
+    \frac{\partial x'^{\alpha}}{\partial x^{\mu}}\frac{\partial x'^{\beta}}{\partial x^{\nu}}g'_{\alpha\beta}=F(x)g_{\mu\nu}
+\end{align}
+meaning the metric is preserved up to a scale factor $F(x)$ under conformal transformation. 
+Consider an infinitesimal translation, $x'^{\mu}=x^{\mu}+\epsilon^{\mu}(x)$. Then the metric changes by, $\delta g_{\mu\nu}=\partial_{\mu}\epsilon_{\nu}(x)+\partial_{\nu}\epsilon_{\mu}(x)$. Conformality condition then requires, $\partial_{\mu}\epsilon_{\nu}(x)+\partial_{\nu}\epsilon_{\mu}(x)=F(x)\delta_{\mu\nu}$, which is called conformal Killing equation. Contraction with $\delta^{\mu\nu}$ yields $F(x)=\frac{2}{d}\partial_{\mu}\epsilon^{\mu}$. For $d\geq3$, there are only 4 classes of solutions for $\epsilon_{\mu}(x)$ which are, $\epsilon^{\mu}(x)=a^{\mu}$ (infinitesimal translation), $\epsilon^{\mu}(x)=M^{\mu}_{\nu}x^{\nu}$ (infinitesimal rotation), $\epsilon^{\mu}(x)=\lambda x^{\mu}$ (infinitesimal scaling), and $\epsilon^{\mu}(x)=2(b.x) x^{\mu}-x^2b^{\mu}$ (Infinitesimal special conformal transformation or SCT). The generators of conformal transformations are: $P^{{\mu}}=i\partial^{{\mu}}$ (translation), $M^{{\mu}{\nu}}=i\left(x^{{\mu}}\partial^{{\nu}}-x^{{\nu}}\partial^{{\mu}}\right)$ (rotation), $D=ix_{{\mu}}\partial^{{\mu}}$ (dilation or scaling), and $\mathfrak{K}^{{\mu}}=i\left(2x^{{\mu}}x_{{\nu}}\partial^{{\nu}}-x^2\partial^{{\mu}}\right)$ (SCT). In finite form, the SCT will be $x'^{\mu }={\frac {x^{\mu }-b^{\mu }x^{2}}{1-2b\cdot x+b^{2}x^{2}}}$, this can be understood as an inversion of $x^\mu$, followed by a translation $b^\mu$, and followed again by an inversion \cite{Blumenhagen}. From the conformal algebra mentioned in Appendix \ref{sec:appconformal} and using the interpolation metric tensor Eq.\eqref{eqn:g_munu_interpolation}: A comprehensive table of the 105 commutation relations among the co-variant components of the Conformal generators is presented below in the Table.~\ref{tabelinterpolation}:
+\begin{widetext}
+\begin{center}
+\begin{table}[h!]\caption{\label{tabelinterpolation}Full conformal algebra in the interpolation form}
+\scalebox{0.57}{
+\begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ \rule{0pt}{16pt} & $P_{\hat{+}}$ & $P_{\hat{1}}$ & $P_{\hat{2}}$ & $K^{\hat{3}}$ & $\mathcal{D}^{\hat{1}}$ & $\mathcal{D}^{\hat{2}}$ & $J^{\hat{3}}$ & $\mathcal{K}^{\hat{1}}$ & $\mathcal{K}^{\hat{2}}$ & $P_{\hat{-}}$ & $\mathfrak{K}_{\hat{+}}$ & $\mathfrak{K}_{\hat{1}}$ & $\mathfrak{K}_{\hat{2}}$ & $\mathfrak{K}_{\hat{-}}$ & $D$\\
+ \hline
+  \hline
+ \rule{0pt}{16pt}  $P_{\hat{+}}$ &0&$0$&$0$&$i\left(\mathbb{C}P_{\hat{-}}-\mathbb{S}P_{\hat{+}}\right)$&$i\mathbb{C}P_{\hat{1}}$&$i\mathbb{C}P_{\hat{2}}$&0&$i\mathbb{S}P_{\hat{1}}$&$i\mathbb{S}P_{\hat{2}}$&0&$2i\mathbb{C}D$&$-2i\mathcal{D}^{\hat{1}}$&$-2i\mathcal{D}^{\hat{2}}$&$2i(\mathbb{S}D-K^{\hat{3}})$&$iP_{\hat{+}}$\\
+ \hline 
+ \rule{0pt}{16pt}$P_{\hat{1}}$ &0&0&0&0&$iP_{\hat{+}}$&0&$-iP_{\hat{2}}$&$iP_{\hat{-}}$&0&0&$2i\mathcal{D}^{\hat{1}}$&$-2iD$&$-2iJ^{\hat{3}}$&$2i\mathcal{K}^{\hat{1}}$&$iP_{\hat{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$P_{\hat{2}}$ &0&0&0&0&0&$iP_{\hat{+}}$&$iP_{\hat{1}}$&0&$iP_{\hat{-}}$&0&$2i\mathcal{D}^{\hat{2}}$&$2iJ^{\hat{3}}$&$-2iD$&$2i\mathcal{K}^{\hat{2}}$&$iP_{\hat{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$K^{\hat{3}}$ &$-i\left(\mathbb{C}P_{\hat{-}}-\mathbb{S}P_{\hat{+}}\right)$&0&0&0&$i\mathbb{S}\mathcal{D}^{\hat{1}}-i\mathbb{C}\mathcal{K}^{\hat{1}}$&$i\mathbb{S}\mathcal{D}^{\hat{2}}-i\mathbb{C}\mathcal{K}^{\hat{2}}$&0&$-i\mathbb{S}\mathcal{K}^{\hat{1}}-i\mathbb{C}\mathcal{D}^{\hat{1}}$&$-i\mathbb{S}\mathcal{K}^{\hat{2}}-i\mathbb{C}\mathcal{D}^{\hat{2}}$&$-i\left(\mathbb{S}P_{\hat{-}}+\mathbb{C}P_{\hat{+}}\right)$&$i\left(\mathbb{S}\mathfrak{K}_{\hat{+}}-\mathbb{C}\mathfrak{K}_{\hat{-}}\right)$&0&0&$-i\left(\mathbb{C}\mathfrak{K}_{\hat{+}}+\mathbb{S}\mathfrak{K}_{\hat{-}}\right)$&0\\
+ \hline 
+ \rule{0pt}{16pt}$\mathcal{D}^{\hat{1}}$ &$-i\mathbb{C}P_{\hat{1}}$&$-iP_{\hat{+}}$&0&$-i\mathbb{S}\mathcal{D}^{\hat{1}}+i\mathbb{C}\mathcal{K}^{\hat{1}}$&0&$-i\mathbb{C}J^{\hat{3}}$&$-i\mathcal{D}^{\hat{2}}$&$iK^{\hat{3}}$&$-i\mathbb{S}J^{\hat{3}}$&$-i\mathbb{S}P_{\hat{1}}$&$-i\mathbb{C}\mathfrak{K}_{\hat{1}}$&$-i\mathfrak{K}_{\hat{+}}$&0&$-i\mathbb{S}\mathfrak{K}_{\hat{1}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$\mathcal{D}^{\hat{2}}$ &$-i\mathbb{C}P_{\hat{2}}$&0&$-iP_{\hat{+}}$&$-i\mathbb{S}\mathcal{D}^{\hat{2}}+i\mathbb{C}\mathcal{K}^{\hat{2}}$&$i\mathbb{C}J^{\hat{3}}$&0&$i\mathcal{D}^{\hat{1}}$&$i\mathbb{S}J^{\hat{3}}$&$iK^{\hat{3}}$&$-i\mathbb{S}P_{\hat{2}}$&$-i\mathbb{C}\mathfrak{K}_{\hat{2}}$&0&$-i\mathfrak{K}_{\hat{+}}$&$-i\mathbb{S}\mathfrak{K}_{\hat{2}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$J^{\hat{3}}$ &0&$iP_{\hat{2}}$&$-iP_{\hat{1}}$&0&$i\mathcal{D}^{\hat{2}}$&$-i\mathcal{D}^{\hat{1}}$&0&$i\mathcal{K}^{\hat{2}}$&$-i\mathcal{K}^{\hat{1}}$&0&0&$i\mathfrak{K}_{\hat{2}}$&$-i\mathfrak{K}_{\hat{1}}$&0&0\\
+ \hline 
+ \rule{0pt}{16pt}$\mathcal{K}^{\hat{1}}$ &$-i\mathbb{S}P_{\hat{1}}$&$-iP_{\hat{-}}$&0&$i\mathbb{S}\mathcal{K}^{\hat{1}}+i\mathbb{C}\mathcal{D}^{\hat{1}}$&$-iK^{\hat{3}}$&$-i\mathbb{S}J^{\hat{3}}$&$-i\mathcal{K}^{\hat{2}}$&0&$i\mathbb{C}J^{\hat{3}}$&$i\mathbb{C}P_{\hat{1}}$&$-i\mathbb{S}\mathfrak{K}_{\hat{1}}$&$-i\mathfrak{K}_{\hat{-}}$&0&$i\mathbb{C}\mathfrak{K}_{\hat{1}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$\mathcal{K}^{\hat{2}}$ &$-i\mathbb{S}P_{\hat{2}}$&0&$-iP_{\hat{-}}$&$i\mathbb{S}\mathcal{K}^{\hat{2}}+i\mathbb{C}\mathcal{D}^{\hat{2}}$&$i\mathbb{S}J^{\hat{3}}$&$-n   iK^{\hat{3}}$&$i\mathcal{K}^{\hat{1}}$&$-i\mathbb{C}J^{\hat{3}}$&0&$i\mathbb{C}P_{\hat{2}}$&$-i\mathbb{S}\mathfrak{K}_{\hat{2}}$&0&$-i\mathfrak{K}_{\hat{-}}$&$i\mathbb{C}\mathfrak{K}_{\hat{2}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$P_{\hat{-}}$ &0&0&0&$i\left(\mathbb{S}P_{\hat{-}}+\mathbb{C}P_{\hat{+}}\right)$&$i\mathbb{S}P_{\hat{1}}$&$i\mathbb{S}P_{\hat{2}}$&0&$-i\mathbb{C}P_{\hat{1}}$&$-i\mathbb{C}P_{\hat{2}}$&0&$2i(\mathbb{S}D+K^{\hat{3}})$&$-2i\mathcal{K}^{\hat{1}}$&$-2i\mathcal{K}^{\hat{2}}$&$-2i\mathbb{C}D$&$iP_{\hat{-}}$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathfrak{K}_{\hat{+}}$ &$-2i\mathbb{C}D$&$-2i\mathcal{D}^{\hat{1}}$&$-2i\mathcal{D}^{\hat{2}}$&$-i\left(\mathbb{S}\mathfrak{K}_{\hat{+}}-\mathbb{C}\mathfrak{K}_{\hat{-}}\right)$&$i\mathbb{C}\mathfrak{K}_{\hat{1}}$&$i\mathbb{C}\mathfrak{K}_{\hat{2}}$&0&$i\mathbb{S}\mathfrak{K}_{\hat{1}}$&$i\mathbb{S}\mathfrak{K}_{\hat{2}}$&$-2i(\mathbb{S}D+K^{\hat{3}})$&0&0&0&0&$-i\mathfrak{K}_{\hat{+}}$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathfrak{K}_{\hat{1}}$ &$2i\mathcal{D}^{\hat{1}}$&$2iD$&$-2iJ^{\hat{3}}$&0&$i\mathfrak{K}_{\hat{+}}$&0&$-i\mathfrak{K}_{\hat{2}}$&$i\mathfrak{K}_{\hat{-}}$&0&$2i\mathcal{K}^{\hat{1}}$&0&0&0&0&$-i\mathfrak{K}_{\hat{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathfrak{K}_{\hat{2}}$ &$2i\mathcal{D}^{\hat{2}}$&$2iJ^{\hat{3}}$&$2iD$&0&0&$i\mathfrak{K}_{\hat{+}}$&$i\mathfrak{K}_{\hat{1}}$&0&$i\mathfrak{K}_{\hat{-}}$&$2i\mathcal{K}^{\hat{2}}$&0&0&0&0&$-i\mathfrak{K}_{\hat{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathfrak{K}_{\hat{-}}$ &$-2i(\mathbb{S}D-K^{\hat{3}})$&$-2i\mathcal{K}^{\hat{1}}$&$-2i\mathcal{K}^{\hat{2}}$&$i\left(\mathbb{C}\mathfrak{K}_{\hat{+}}+\mathbb{S}\mathfrak{K}_{\hat{-}}\right)$&$i\mathbb{S}\mathfrak{K}_{\hat{1}}$&$i\mathbb{S}\mathfrak{K}_{\hat{2}}$&0&$-i\mathbb{C}\mathfrak{K}_{\hat{1}}$&$-i\mathbb{C}\mathfrak{K}_{\hat{2}}$&$2i\mathbb{C}D$&0&0&0&0&$-i\mathfrak{K}_{\hat{-}}$\\
+ \hline 
+ \rule{0pt}{16pt}$D$ &$-iP_{\hat{+}}$&$-iP_{\hat{1}}$&$-iP_{\hat{2}}$&0&0&0&0&0&0&$-iP_{\hat{-}}$&$i\mathfrak{K}_{\hat{+}}$&$i\mathfrak{K}_{\hat{1}}$&$i\mathfrak{K}_{\hat{2}}$&$i\mathfrak{K}_{\hat{-}}$&0\\
+ \hline
+\end{tabular}}
+\end{table}
+\end{center}
+\end{widetext}
+where, $P_{\hat{+}}=P_0\cos{\delta}+P_3\sin{\delta}$, $P_{\hat{-}}=P_0\sin{\delta}-P_3\cos{\delta}$, $
+\mathfrak{K}_{\hat{+}}=\mathfrak{K}_0\cos{\delta}+\mathfrak{K}_3\sin{\delta}$, $\mathfrak{K}_{\hat{-}}=\mathfrak{K}_0\sin{\delta}-\mathfrak{K}_3\cos{\delta}$, and the perpendicular components remain the same.
+
+The limit $\mathbb{C}=0;~\mathbb{S}=1$ corresponds to LFD and the limit $\mathbb{C}=1;~\mathbb{S}=0$ corresponds to IFD are discussed in Appendix~\ref{sec:appconformal}.
+
+Here in the conformal algebra, the dilatation which generates the scaling is kinematic for the entire region of the interpolation angle ($0\leq\delta\leq\frac{\pi}{4}$). Another important observation is like the generator $K^{3}=M_{\pT\mT}$, the generator $\mathfrak{K}^{\hat{+}}$ is dynamical in the region where $0\leq\delta<\pi/4$ but becomes kinematic in the light-front limit ($\delta=\pi/4$). To understand this, note that $\left[\mathfrak{K}^{\hat{+}},x^{\hat{+}}\right]=-i\left(2x^{\hat{+}}x^{\hat{+}}-(x^{\hat{\alpha}}.x_{\hat{\alpha}})\mathbb{C}\right)\rightarrow ~-i(x^0.x^0+\Vec{x}.\Vec{x})$ as $\delta\rightarrow0$, and $\left[\mathfrak{K}^{\hat{+}},x^{\hat{+}}\right]=-i\left(2x^{\hat{+}}x^{\hat{+}}-(x^{\hat{\alpha}}.x_{\hat{\alpha}})\mathbb{C}\right)\rightarrow ~-i(2x^+.x^+)$ as $\delta\rightarrow\pi/4$,  the conformal generator (LF time component) $\mathfrak{K}_{{-}}$ is Kinematic in LFD, but Dynamic in IFD. Therefore the instant defined by $x^+=0$ becomes invariant under SCT (light-front space component) generated by $\mathfrak{K}_{{-}}$ as we move to the light front.
+The set of kinematic and dynamic conformal generators depending on the interpolation angle are summarized in Table.~\ref{tab:Kinematic_and_dynamic_generators_for_different_interoplation_angles_conformal}.
+
+\section{Conformal algebra in simpler form}
+\label{conformalsimpler}
+In order to make the conformal commutation rules \eqref{conformalalgebra} into a simpler form, we define the following generators \cite{Francesco,Blumenhagen}:
+\begin{align}\label{Jab}
+  J_{a,b}&=
+  \begin{pmatrix}
+  0&-D&\frac{-\mathfrak{K}_0}{\sqrt{2}}&\frac{-\mathfrak{K}_1}{\sqrt{2}}&\frac{-\mathfrak{K}_2}{\sqrt{2}}&\frac{-\mathfrak{K}_3}{\sqrt{2}}\\
+  D&0&\frac{P_0}{\sqrt{2}}&\frac{P_1}{\sqrt{2}}&\frac{P_2}{\sqrt{2}}&\frac{P_3}{\sqrt{2}}\\
+    \frac{\mathfrak{K}_0}{\sqrt{2}}&\frac{-P_0}{\sqrt{2}}&0 & -K^{1} & -K^{2} & -K^{3}\\
+    \frac{\mathfrak{K}_1}{\sqrt{2}}&\frac{-P_1}{\sqrt{2}}&K^{1} & 0 & J^{3} & -J^{2}\\
+    \frac{\mathfrak{K}_2}{\sqrt{2}}&\frac{-P_2}{\sqrt{2}}&K^{2} & -J^{3} & 0 & J^{1}\\
+    \frac{\mathfrak{K}_3}{\sqrt{2}}&\frac{-P_3}{\sqrt{2}}&K^{3} & J^{2} & -J^{1} & 0
+  \end{pmatrix}_{6\times6}
+\end{align}
+where $J_{a,b}=-J_{b,a}$ and $a,b\in\{-2,-1,0,1,2,3\}$. These new generators obey the $SO(4+1,1)$ commutation relations:
+  \begin{align}\label{algebrasimp}
+      \left[J_{{a}{b}},J_{{c}{d}}\right]=-i\left(g_{{b}{d}}J_{{a}{c}}-g_{{b}{c}}J_{{a}{d}}+g_{{a}{c}}J_{{b}{d}}-g_{{a}{d}}J_{{b}{c}}\right)
+  \end{align}
+where, 
+  \begin{align}\label{metric}
+      g_{a,b}=\begin{pmatrix}
+  0&-1&0&0&0&0\\
+  -1&0&0&0&0&0\\
+  0&0&1&0&0&0\\
+  0&0&0&-1&0&0\\
+  0&0&0&0&-1&0\\
+  0&0&0&0&0&-1\\
+  \end{pmatrix}_{6\times6}
+  \end{align}
+The algebra Eq.\eqref{algebrasimp} with the above $g_{a,b}$ is equivalent to the conformal algebra mentioned in Appendix \ref{conformalalgebra}. For interpolating this algebra Eq.\eqref{algebrasimp} between IFD and LFD, let us define an interpolation (transformation) matrix ($6\times6$), which is given by,
+\begin{align}
+    (\mathcal{R}_{\hat{a}}^{b})_{6\times6}=(\mathcal{R}_{\hat{a}}^{b})^T_{6\times6}=\begin{pmatrix}
+    1&0&0&0&0&0\\
+    0&1&0&0&0&0\\
+    0&0&\cos{\delta}&0&0&\sin{\delta}\\
+    0&0&0&1&0&0\\
+    0&0&0&0&1&0\\
+    0&0&\sin{\delta}&0&0&-\cos{\delta}
+    \end{pmatrix}
+\end{align}
+Then in interpolation form $J_{\hat{a},\hat{b}}$ becomes $J_{\hat{a},\hat{b}}=\mathcal{R}_{\hat{a}}^{{c}}J_{c,d}\mathcal{R}_{\hat{b}}^{{d}}$, that is
+\begin{align}
+    J_{\hat{a},\hat{b}}&=\begin{pmatrix}
+    0&-D&-\frac{\mathfrak{K}_{\hat{+}}}{\sqrt{2}}&-\frac{\mathfrak{K}_1}{\sqrt{2}}&-\frac{\mathfrak{K}_2}{\sqrt{2}}&-\frac{\mathfrak{K}_{\hat{-}}}{\sqrt{2}}\\
+    D&0&\frac{P_{\hat{+}}}{\sqrt{2}}&\frac{P_{1}}{\sqrt{2}}&\frac{P_{2}}{\sqrt{2}}&\frac{P_{\hat{-}}}{\sqrt{2}}\\
+    \frac{\mathfrak{K}_{\hat{+}}}{\sqrt{2}}&-\frac{P_{\hat{+}}}{\sqrt{2}}&0 & {\mathcal{D}}^{\itP{1}} & {\mathcal{D}}^{\itP{2}} & {K}^{3}\\
+    \frac{\mathfrak{K}_1}{\sqrt{2}}&-\frac{P_{1}}{\sqrt{2}}&-{\mathcal{D}}^{\itP{1}} & 0 & {J}^{3} & -{\mathcal{K}}^{\itP{1}}\\
+    \frac{\mathfrak{K}_2}{\sqrt{2}}&-\frac{P_{2}}{\sqrt{2}}&-{\mathcal{D}}^{\itP{2}} & -{J}^{3} & 0 & -{\mathcal{K}}^{\itP{2}}\\
+    \frac{\mathfrak{K}_{\hat{-}}}{\sqrt{2}}&-\frac{P_{\hat{-}}}{\sqrt{2}}&-{K}^{3} & {\mathcal{K}}^{\itP{1}} & {\mathcal{K}}^{\itP{2}} & 0
+  \end{pmatrix}_{(6\times6)}
+\end{align}
+Then the simplified conformal algebra in interpolation is:
+  \begin{align}
+      \left[J_{{\hat{a}}{\hat{b}}},J_{{\hat{c}}{\hat{d}}}\right]=-i\left(g_{{\hat{b}}{\hat{d}}}J_{{\hat{a}}{\hat{c}}}-g_{{\hat{b}}{\hat{c}}}J_{{\hat{a}}{\hat{d}}}+g_{{\hat{a}}{\hat{c}}}J_{{\hat{b}}{\hat{d}}}-g_{{\hat{a}}{\hat{d}}}J_{{\hat{b}}{\hat{c}}}\right)\label{simplesrint}
+  \end{align}
+where, 
+\begin{align}
+    g_{\hat{a},\hat{b}}&=\begin{pmatrix}
+  0&-1&0&0&0&0\\
+  -1&0&0&0&0&0\\
+  0&0&\mathbb{C}&0&0&\mathbb{S}\\
+  0&0&0&-1&0&0\\
+  0&0&0&0&-1&0\\
+  0&0&\mathbb{S}&0&0&-\mathbb{C}\\
+  \end{pmatrix}_{6\times6}
+\end{align}
+The algebra Eq.\eqref{simplesrint} with the above interpolating $6\times6$ metric will reproduce the explicit commutation relations in interpolation between IFD, and LFD mentioned in Table.~\ref{tabelinterpolation}. With the IFD limit $\mathbb{C}\longrightarrow1~\&~\mathbb{S}\longrightarrow0$ and LFD limit $\mathbb{C}\longrightarrow0~\&~\mathbb{S}\longrightarrow1$, the algebra Eq.\eqref{simplesrint} will reproduce the explicit commutation relations mentioned in Table.~\ref{tabelinterpolation} and Table.~\ref{tabelinterpolationlfd} respectively.
+
+
+
+\section{Isomorphism with Dirac matrices}
+\label{isomorphism}
+Dirac\cite{Dirac1936} has shown the existence of isomorphism between $SO(4,2)$ conformal group and Dirac matrices. Later, Hepner\cite{Hepner1962} has explicitly shown the isomorphism between the group of Dirac's four-row $\gamma$-matrices and the continuous conformal group in Euclidean space. One can show the isomorphism between the conformal group Eq.\eqref{Jab} and the group of fifteen matrices of the $\gamma$'s and their products in the Minkowski space,
+{\begin{align}
+  J'_{a,b}&=
+  \scalebox{0.7}{\begin{pmatrix}
+  0&\gamma_5&\frac{(1-\gamma_5)\gamma_0}{\sqrt{2}}&\frac{(1-\gamma_5)\gamma_1}{\sqrt{2}}&\frac{(1-\gamma_5)\gamma_2}{\sqrt{2}}&\frac{(1-\gamma_5)\gamma_3}{\sqrt{2}}\\
+  -\gamma_5&0&\frac{(1+\gamma_5)\gamma_0}{\sqrt{2}}&\frac{(1+\gamma_5)\gamma_1}{\sqrt{2}}&\frac{(1+\gamma_5)\gamma_2}{\sqrt{2}}&\frac{(1+\gamma_5)\gamma_3}{\sqrt{2}}\\
+    \frac{-(1-\gamma_5)\gamma_0}{\sqrt{2}}&\frac{-(1+\gamma_5)\gamma_0}{\sqrt{2}}&0 & \gamma_0\gamma_1 & \gamma_0\gamma_2 & \gamma_0\gamma_3\\
+   \frac{-(1-\gamma_5)\gamma_1}{\sqrt{2}}&\frac{-(1+\gamma_5)\gamma_1}{\sqrt{2}}&\gamma_1\gamma_0 & 0 & \gamma_1\gamma_2 & \gamma_1\gamma_3\\
+    \frac{-(1-\gamma_5)\gamma_2}{\sqrt{2}}&\frac{-(1+\gamma_5)\gamma_2}{\sqrt{2}}&\gamma_2\gamma_0 & \gamma_2\gamma_1 & 0 & \gamma_2\gamma_3\\
+    \frac{-(1-\gamma_5)\gamma_3}{\sqrt{2}}&\frac{-(1+\gamma_5)\gamma_3}{\sqrt{2}}&\gamma_3\gamma_0 & \gamma_3\gamma_1 & \gamma_3\gamma_2 & 0
+  \end{pmatrix}}. 
+\end{align}}
+This $J'_{a,b}$ obeys the $SO(4+1,1)$ algebra Eq.\eqref{algebrasimp} with the metric is given by Eq.\eqref{metric}. The representation of the conformal group in terms of $4\times4$ gamma matrices are the following;
+\begin{align}
+    P_\mu=&\frac{i}{2}(1+\gamma_5)\gamma_\mu;\\
+    \mathfrak{K}_\mu=&\frac{-i}{2}(1-\gamma_5)\gamma_\mu;\\
+    K^1=&\frac{i}{2}\gamma_1\gamma_0;~~K^2=\frac{i}{2}\gamma_2\gamma_0;~~K^3=\frac{i}{2}\gamma_3\gamma_0;\\
+    J^1=&\frac{i}{2}\gamma_2\gamma_3;~~J^2=\frac{i}{2}\gamma_3\gamma_1;~~J^3=\frac{i}{2}\gamma_1\gamma_2;\\
+    D=&\frac{-i}{2}\gamma_5.
+\end{align}
+which explicitly gives the same $4\times4$ matrix representations mentioned in Eq.\eqref{explicite44}  in Appendix \ref{4x4}.
+
+
+\section{six-dimensional projective space representation}
+\label{6times6}
+In 6-dimensional space, there are 15 planes ($\frac{n(n-1)}{2}$ planes in $n$ dimension); rotation on each plane corresponds to each conformal generator. We can also write
+\begin{align}
+   J_{a,b}= i(\tilde{x}_{a}\tilde{\partial}_{b}-\tilde{x}_{b}\tilde{\partial}_{a})\label{6rotation}
+\end{align}
+where $a,b\in\{-2,-1,0,1,2,3\}$. And it obeys,
+ \begin{align}\label{algebrasimp}
+      \left[J_{{a}{b}},J_{{c}{d}}\right]=-i\left(g_{{b}{d}}J_{{a}{c}}-g_{{b}{c}}J_{{a}{d}}+g_{{a}{c}}J_{{b}{d}}-g_{{a}{d}}J_{{b}{c}}\right)
+  \end{align}
+\\
+\\
+Let's say that $A^a$ is 6-vector; suppose $A^a$ and $B^a$ transform under 6d rotation:
+\begin{align}
+    A^a'=R^a_{~b} A^b,~~~~B^a'=R^a_{~c} B^c.
+\end{align}
+Then the inner products $A'.B'$ and $A.B$ can be written as
+\begin{align}
+    A'_b B'^b&=(g_{ab}R^a_c R^b_d)A^c B^d,\\
+    A_b B^b&=g_{cd}A^c B^d.
+\end{align}
+In order for $A'.B'=A.B$ to hold for any $A$ and $B$, the coefficients of $A^c B^d$ should be the same term by term:
+\begin{align}
+    \Aboxed{g_{ab}R^a_c R^b_d=g_{cd}}\label{1.31}.
+\end{align}
+\\
+\\
+Let’s start by looking at a 6d rotation transformation which is (has to be) infinitesimally close to the identity:
+\begin{align}
+    R^a_{~b}=g^a_{~b}+\omega^a_{~b}\label{1.80}~,
+\end{align}
+where $\omega^a_b$ is a set of small (real) numbers. Inserting this to the defining condition (\eqref{1.31}), we get
+\begin{align}
+    g^{cd}&=R_{b}^cR^{bd}~,\\
+    &=(g_{b}^{c}+\omega_{b}^{c})(g^{bd}+\omega^{bd})~,\nonumber\\
+    &=g^{cd}+\omega^{cd}+\omega^{dc}+\mathcal{O}(\omega^2).
+\end{align}
+Keeping terms to the first order in $\omega$, we then obtain
+\begin{align}
+    \omega^{ab}=-\omega^{ba}~.
+\end{align}
+Namely, $\omega^{ab}$ is anti-symmetric (which is true when the indices are both subscript or both superscript; in fact, $\omega^a_b$ is not anti-symmetric under $a\longleftrightarrow b$), and thus it has 15
+independent parameters:
+\begin{align}
+    \omega^{ab}=\begin{pmatrix}
+     0&\omega^{-2-1}&\omega^{-20}&\omega^{-21}&\omega^{-22}&\omega^{-23}\\
+     -\omega^{-2-1}&0&\omega^{-10}&\omega^{-11}&\omega^{-12}&\omega^{-13}\\
+    -\omega^{-20}&-\omega^{-10}&0&\omega^{01}&\omega^{02}&\omega^{03}\\
+    -\omega^{-21}&-\omega^{-11}&-\omega^{01}&0&\omega^{12}&\omega^{13}\\
+    -\omega^{-22}&-\omega^{-12}&-\omega^{02}&-\omega^{12}&0&\omega^{23}\\
+    -\omega^{-23}&-\omega^{-13}&-\omega^{03}&-\omega^{13}&-\omega^{23}&0
+\end{pmatrix}_{(6\times6)}~.
+\end{align}
+This can be conveniently parameterized using 15 anti-symmetric matrices as
+\begin{align}
+    \omega^{ab}&=-i\bigg[\omega^{-2-1}(J_{-2-1})^{ab}+\omega^{-20}(J_{-20})^{ab}+\omega^{-21}(J_{-21})^{ab}\nonumber\\
+    &~~~~~~~~+\omega^{-22}(J_{-22})^{ab}+\omega^{-23}(J_{-23})_{ab}+\omega^{-10}(J_{-10})^{ab}\nonumber\\
+    &~~~~~~~~+\omega^{-11}(J_{-11})^{ab}+\omega^{-12}(J_{-12})^{ab}+\omega^{-13}(J_{-13})^{ab}\nonumber\\
+    &~~~~~~~~+\omega^{01}(J_{01})^{ab}+\omega^{02}(J_{02})^{ab}+\omega^{03}(J_{03})^{ab}\nonumber\\
+    &~~~~~~~~+\omega^{23}(J_{23})^{ab}+\omega^{13}(J_{13})^{ab}+\omega^{12}(J_{12})^{ab}\bigg]~,\nonumber\\
+    &=-i\sum_{c<d}\omega^{cd}(J_{cd})^{ab}\label{1.84}~,
+\end{align}
+Note that for a given pair of $c$ and $d$, $(J_{cd})^{ab}$ is a $6\times6$ matrix, while $\omega^{cd}$ is a real number. The elements $(J_{cd})^{ab}$ can be written in a concise form as follows: first, we note that in the upper right half of each matrix (i.e., for $a < b$), the element with $(a, b) = (c,d)$ is 1 and all else are zero, which can be written as $g_c^a g_d^b$. For the lower half, we have to flip $a$ and $b$ and add a minus sign. Combining the two halves, we get
+\begin{align}
+   (J_{cd})^{ab}=g_c^a g_d^b-g_c^b g_d^a .\label{1.86}
+\end{align}
+This is defined only for $c < d$ so far. For $c > d$, we will use this same expression (\eqref{1.86}) as the definition; then, $(J_{cd})^{ab}$ is anti-symmetric with respect to ($c\longleftrightarrow d$):
+\begin{align}
+    (J_{cd})^{ab}=-(J_{dc})^{ab},
+\end{align}
+which also means $(J_{cd})^{ab} = 0$ if $c=d$. Together with $\omega^{cd}=-\omega^{dc}$, (\eqref{1.84}) becomes
+\begin{align}
+    \omega^{ab}=-i\sum_{c<d}\omega^{cd}(J_{cd})^{ab}=-i\sum_{c>d}\omega^{cd}(J_{cd})^{ab}=-\frac{i}{2}\omega^{cd}(J_{cd})^{ab}~,
+\end{align}
+where in the last expression, sum over all values of $c$ and $d$ is implied. The infinitesimal transformation (6d rotation) (\eqref{1.80}) can then be written a
+\begin{align}
+    R^a_b=g^a_b-\frac{i}{2}\omega^{cd}(J_{cd})^a_b~,
+\end{align}
+or in matrix form,
+\begin{align}
+    R=I-\frac{i}{2}\omega^{cd}J_{cd}~.
+\end{align}
+
+The generator representation $(J_{cd})^a_b$ can be obtained by
+\begin{align}
+    (J_{cd})^a_b=g^{af}(J_{cd})_{fb}
+\end{align}
+The representation matrices of conformal generators are defined by taking the first  index to be superscript and the second subscript:
+\begin{align}
+    \frac{-\mathfrak{K}_\mu}{\sqrt{2}}&\equiv (J_{-2\mu})^a_b~\\
+    \frac{P_\mu}{\sqrt{2}}&\equiv (J_{-1\mu})^a_b\\
+    -D&\equiv (J_{-2-1})^a_b\\
+    K_i&\equiv (J_{i0})^a_b\\
+    J_i&\equiv (J_{\epsilon_{ijk}jk})^a_b~.~~
+\end{align}
+Explicitly,
+\begin{align*}
+    P_0&=\sqrt{2}\begin{pmatrix}
+    0&0&-i&0&0&0\\
+    0&0&0&0&0&0\\
+    0&-i&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0
+    \end{pmatrix};~~P_1=\sqrt{2}\begin{pmatrix}
+    0&0&0&-i&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&i&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0
+    \end{pmatrix};~~\\
+    P_2&=\sqrt{2}\begin{pmatrix}
+    0&0&0&0&-i&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&i&0&0&0&0\\
+    0&0&0&0&0&0
+    \end{pmatrix};~~P_3=\sqrt{2}\begin{pmatrix}
+    0&0&0&0&0&-i\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&i&0&0&0&0
+    \end{pmatrix};~~\\
+     \mathfrak{K}_0&=\sqrt{2}\begin{pmatrix}
+    0&0&0&0&0&0\\
+    0&0&i&0&0&0\\
+    i&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0
+    \end{pmatrix};~~\mathfrak{K}_1=\sqrt{2}\begin{pmatrix}
+    0&0&0&0&0&0\\
+    0&0&0&i&0&0\\
+    0&0&0&0&0&0\\
+    -i&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0
+    \end{pmatrix};~~
+\end{align*}
+
+
+
+\begin{align}\label{66rep}
+     \mathfrak{K}_2&=\sqrt{2}\begin{pmatrix}
+    0&0&0&0&0&0\\
+    0&0&0&0&i&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    -i&0&0&0&0&0\\
+    0&0&0&0&0&0
+    \end{pmatrix};~~\mathfrak{K}_3=\sqrt{2}\begin{pmatrix}
+    0&0&0&0&0&0\\
+    0&0&0&0&0&i\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    -i&0&0&0&0&0
+    \end{pmatrix};~~\nonumber\\
+    D&=\begin{pmatrix}
+    -i&0&0&0&0&0\\
+    0&i&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0
+    \end{pmatrix};~~J^1=\begin{pmatrix}
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+  0&0&0&0 & 0 & 0\\
+  0&0&0&0 & 0 & -i\\
+  0&0&0&0 & i & 0
+\end{pmatrix};~~\nonumber\\
+J^2&=\begin{pmatrix}
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+  0&0&0&0 & 0 & i\\
+  0&0&0&0 & 0 & 0\\
+  0&0&0&-i & 0 & 0
+\end{pmatrix};~~J^3=\begin{pmatrix}
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+  0&0&0&0 & -i & 0\\
+  0&0&0&i & 0 & 0\\
+  0&0&0&0 & 0 & 0
+\end{pmatrix};\nonumber\\
+K^1&=\begin{pmatrix}
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&-i&0&0\\
+  0&0&-i&0 & 0 & 0\\
+  0&0&0&0 & 0 & 0\\
+  0&0&0&0 & 0 & 0
+\end{pmatrix};~~K^2=\begin{pmatrix}
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&-i&0\\
+  0&0&0&0 & 0 & 0\\
+  0&0&-i&0 & 0 & 0\\
+  0&0&0&0 & 0 & 0
+\end{pmatrix};~~\nonumber\\
+K^3&=\begin{pmatrix}
+    0&0&0&0&0&0\\
+    0&0&0&0&0&0\\
+    0&0&0&0&0&-i\\
+  0&0&0&0 & 0 & 0\\
+  0&0&0&0 & 0 & 0\\
+  0&0&-i&0 & 0 & 0
+\end{pmatrix}
+\end{align}
+which obey the full commutation relations of the conformal group.
+
+
+By comparing the 6 dimensional projective space generator definition Eq.\eqref{6rotation} and 4 dimensional Minkowsky space generator definition mentioned in Section \ref{sec:conformal}, we found the correspondence between 6 dimensional projective space and usual 4 dimensional space which is
+\begin{align}\label{corres}
+    \tilde{x}_{-1}&=\frac{-\lambda}{\sqrt{2}};~~~~~~~~~~~~~~~~~~~ \tilde{\partial}_{-1}=0;\\
+    \tilde{x}_{-2}&=\frac{-\lambda}{\sqrt{2}}(x^\mu.x_\mu);~~~~~~~~~ \tilde{\partial}_{-2}=\frac{-\sqrt{2}}{\lambda}(x^\mu.\partial_\mu);\\
+     \tilde{x}_{\mu}&=\lambda x_\mu;~~~~~~~~~~~~~~~~~~~~ \tilde{\partial}_{\mu}=\frac{1}{\lambda}\partial_\mu;
+\end{align}
+Then the 6 dimensional dot product is given by,
+\begin{align}
+    g_{ab}\tilde{x}^a \tilde{x}^b&=\tilde{x}^{-2}\tilde{x}_{-2}+\tilde{x}^{-1}\tilde{x}_{-1}+\tilde{x}^{\mu}\tilde{x}_{\mu}\\
+    \tilde{x}_{a}.\tilde{x}^{a}&=-2\tilde{x}_{-2}\tilde{x}_{-1}+\tilde{x}^{\mu}\tilde{x}_{\mu}\\
+     \tilde{x}_{a}.\tilde{x}^{a}&=-2\frac{-\lambda}{\sqrt{2}}(x^\mu.x_\mu)\frac{-\lambda}{\sqrt{2}}+\lambda^2{x}^{\mu}{x}_{\mu}\\
+     &=-\lambda^2{x}^{\mu}{x}_{\mu}+\lambda^2{x}^{\mu}{x}_{\mu}\\
+      \tilde{x}_{a}.\tilde{x}^{a}&=0
+\end{align}
+we may recover coordinates, $x_\mu$, near the origin and coordinates $\frac{x_\mu}{x^2}$ , near infinity, on Minkowski space by forming the ratios
+    
+    \begin{align}\label{origin}
+     x_\mu&=-\frac{1}{\sqrt{2}}\frac{\tilde{x}_{\mu}}{ \tilde{x}_{-1}}\\
+     \frac{x_\mu}{x^2}&=-\frac{1}{\sqrt{2}}\frac{\tilde{x}_{\mu}}{\tilde{x}_{-1}}\frac{2\tilde{x}_{-1}\tilde{x}_{-1}}{\tilde{x}_{\mu}\tilde{x}^{\mu}}=-\frac{1}{\sqrt{2}}\frac{\tilde{x}_{\mu}}{\tilde{x}_{-2}}
+    \end{align}
+Few explicit example of this correspondence and $6\times6$ representation are given in Appendix \ref{egSCT0}
+
+
+\section{Unitary representation}
+\label{unitary}
+The $4\times4$ matrix representation of the whole conformal group is mentioned in Appendix \ref{4x4}. One can also construct a unitary operator representation from each generator of the conformal group that will dictate the space-time and momentum transformation under each conformal transformation. So the space-time transformations of the conformal group  will be realized by unitary operators constructed from the generators mentioned in Section \ref{sec:conformal} with the following convention:
+\begin{table}[h!]
+    \centering
+    \scalebox{0.9}{
+    \begin{tabular}{c  c  c}
+       &\textbf{Transformations}  &  \textbf{Unitary Operator}\\
+        (translation)&$x'^{\mu}=x^\mu+a^\mu$ & $e^{-ia_\mu P^\mu}$\\
+        (rotation \& boost)&$x'^{\mu}=\Lambda^\mu_\nu x^\nu$&$e^{-i(\beta_iK^i+\theta_lJ^l)}$\\
+        (dilation)&$x'^{\mu}=\alpha x^\mu$ & $e^{-i\alpha D}$\\
+        (SCT)&$x'^{\mu }={\frac {x^{\mu }-b^{\mu }x^{2}}{1-2b\cdot x+b^{2}x^{2}}}$&$e^{-ib_\mu \mathfrak{K}^{{\mu}}}$
+    \end{tabular}}
+    \label{tab:my_label}
+\end{table}
+
+where, $\Lambda^\mu$ is the Lorentz (rotation \& boost) transformation, $\beta_i$ is rapidity in $i$ direction, and $\theta_l$ is rotation about $l$ direction. One can algebraically find the commutations between this conformal generator and $x^\mu$; with the help of the Baker–Campbell–Hausdorff formula, one can obtain the space-time transformation under conformal transformation.
+
+In order to obtain the momentum dispersion relation under special conformal transformation, we need to find the momentum transformation under SCT. We apply $e^{-ib^{\mu} \mathfrak{K}_{\mu}}$ to each of the momentum components $(\wh{\mu} = \wh+,\,\wh- ,\, \wh1,\, \wh2)$:
+\begin{align}
+{P}_{{\nu}}' = & e^{ib^{\mu} \mathfrak{K}_{\mu}} {P}_{{\nu}} e^{-ib^{\mu} \mathfrak{K}_{\mu} } \\
+ = & {P}_{{\nu}} + i\left[b^{\mu} \mathfrak{K}_{\mu}, {P}_{{\nu}} \right] + \frac{i^2}{2!}\left[b^{\mu} \mathfrak{K}_{\mu}, \left[b^{\mu} \mathfrak{K}_{\mu}, {P}_{{\nu}} \right]\right]\nonumber\\
+ &~~~+ \frac{i^3}{3!}\left[b^{\mu} \mathfrak{K}_{\mu},\left[b^{\mu} \mathfrak{K}_{\mu}, \left[b^{\mu} \mathfrak{K}_{\mu}, {P}_{{\nu}} \right]\right] \right] + \cdots\\
+ {P}_{{\nu}}' = & {P}_{{\nu}} -2 \left(b_\nu D-b^\mu M_{{\mu}{\nu}}\right)+2 b_{\nu}(b^{\mu}.\mathfrak{K}_{\mu})-(b^\mu b_{\mu})\mathfrak{K}_{{\nu}}.
+\end{align}
+Then we find the dot product $P'_\mu P'^\mu$ which is
+\begin{align}
+     P'^2=&P^2 +4(b_\nu.{P}^{{\nu}})\left[b^{\mu}.\mathfrak{K}_{\mu}-D\right]\nonumber\\
+    &+b^2\left[4D^2+4 M^{{\mu}{\nu}} M_{{\mu}{\nu}}+b^2\mathfrak{K}^2-2\mathfrak{K}_{{\nu}}.{P}^{{\nu}}-4D b^{\mu}.\mathfrak{K}_{\mu}\right]\nonumber\\
+    &+4M_{\mu\nu}\left[b^\mu {P}^{{\nu}}-2Db^\mu b^\nu+2(b^{\mu}.\mathfrak{K}_{\mu})b^\mu b^\nu\right].
+\end{align}
+\section{Summary and Conclusion}
+In the present work, we presented the full conformal algebra in interpolation form. We showed that other than boost $K^{3}$, one of the generators of special conformal transformation $\mathfrak{K}^{\hat{+}}$ is dynamical in the region where $0\leq\delta<\frac{\pi}{4}$ but becomes kinematic in the light-front limit ($\delta=\frac{\pi}{4}$). We also presented conformal group $SO(4,2)$ in the interpolation form between IFD and LFD, and the unitary representation and 4-dimensional matrix representation of the conformal group.
+\acknowledgments
+One of us (Hariprashad Ravikumar) wishes to thank Dr\@ Harleen Dahiya for the valuable discussions on some calculations. 
+\appendix
+
+\section{Conformal algebra}
+\label{sec:appconformal}
+From the generators of conformal transformations mentioned in section \ref{sec:conformal}, we get the conformal algebra:
+\begin{align}\label{conformalalgebra}
+    \left[P_{{\mu}},P_{{\nu}}\right]&=0;~\left[\mathfrak{K}_{{\mu}},\mathfrak{K}_{{\nu}}\right]=0;\nonumber\\
+ \left[D, P_{{\mu}}\right]&=-iP_{{\mu}};~\left[D, \mathfrak{K}_{{\mu}}\right]=i\mathfrak{K}_{{\mu}};\nonumber\\
+ \left[P_{{\rho}},M_{{\mu}{\nu}}\right]&=i\left(g_{{\rho}{\mu}}P_{{\nu}}-g_{{\rho}{\nu}}P_{{\mu}}\right);\nonumber\\
+ \left[\mathfrak{K}_{{\rho}},M_{{\mu}{\nu}}\right]&=i\left(g_{{\rho}{\mu}}\mathfrak{K}_{{\nu}}-g_{{\rho}{\nu}}\mathfrak{K}_{{\mu}}\right);\nonumber\\
+ \left[M_{{\alpha}{\beta}},M_{{\rho}{\sigma}}\right]&=-i\left(g_{{\beta}{\sigma}}M_{{\alpha}{\rho}}-g_{{\beta}{\rho}}M_{{\alpha}{\sigma}}+g_{{\alpha}{\rho}}M_{{\beta}{\sigma}}-g_{{\alpha}{\sigma}}M_{{\beta}{\rho}}\right);\nonumber\\
+ \left[\mathfrak{K}_{{\mu}},P_{{\nu}}\right]&=-2i\left(g_{{\mu}{\nu}}D+M_{{\mu}{\nu}}\right);~\left[D, M_{{\mu}{\nu}}\right]=0.
+\end{align} 
+where, $g_{\mu\nu}$ is the metric tensor. This algebra is the same in Euclidean, Minkowski, Interpolation, or any other space, one must use an explicit form of the metric tensor in the respective space. In the interpolation form, we use ``\textasciicircum''  notation and  interpolation metric tensor Eq.\eqref{eqn:g_munu_interpolation}, which is summarized in the Table.~\ref{tabelinterpolation}. The IFD limit $\mathbb{C}=1;~\mathbb{S}=0$ is given the Table.~\ref{tabelinterpolationifd} and the LFD limit $\mathbb{C}=0;~\mathbb{S}=1$ is given the Table.~\ref{tabelinterpolationlfd}
+\begin{widetext}
+\begin{center}
+\begin{table}[h!]
+\caption{\label{tabelinterpolationifd}Full conformal algebra in IFD}
+\scalebox{0.6}{
+\begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ \rule{0pt}{16pt} & $P_{{0}}$ & $P_{{1}}$ & $P_{{2}}$ & $K^{{3}}$ & $-{K}^{{1}}$ & $-{K}^{{2}}$ & $J^{{3}}$ & $-{J}^{{2}}$ & ${J}^{{1}}$ & $-P_{{3}}$ & $\mathfrak{K}_{{0}}$ & $\mathfrak{K}_{{1}}$ & $\mathfrak{K}_{{2}}$ & $-\mathfrak{K}_{{3}}$ & $D$\\
+ \hline
+  \hline
+ \rule{0pt}{16pt}  $P_{{0}}$ &0&$0$&$0$&${-iP_{{3}}}$&$iP_{{1}}$&$iP_{{2}}$&0&$0$&$0$&0&$2iD$&$2i{K}^{{1}}$&$2i{K}^{{2}}$&${-2iK^{{3}}}$&$iP_{{0}}$\\
+ \hline 
+ \rule{0pt}{16pt}$P_{{1}}$ &0&0&0&0&$iP_{{0}}$&0&$-iP_{{2}}$&${-iP_{{3}}}$&0&0&$-2i{K}^{{1}}$&$-2iD$&$-2iJ^{{3}}$&${-2i{J}^{{2}}}$&$iP_{{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$P_{{2}}$ &0&0&0&0&0&$iP_{{0}}$&$iP_{{1}}$&0&${-iP_{{3}}}$&0&$-2i{K}^{{2}}$&$2iJ^{{3}}$&$-2iD$&${2i{J}^{{1}}}$&$iP_{{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$K^{{3}}$ &${+iP_{{3}}}$&0&0&0&$i{J}^{{2}}$&$-i{J}^{{1}}$&0&$i{K}^{{1}}$&$i{K}^{{2}}$&${-iP_{{0}}}$&${+i\mathfrak{K}_{{3}}}$&0&0&${-i\mathfrak{K}_{{0}}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$-{K}^{{1}}$ &$-iP_{{1}}$&$-iP_{{0}}$&0&$-i{J}^{{2}}$&0&$-iJ^{{3}}$&$i{K}^{{2}}$&${+iK^{{3}}}$&$0$&$0$&$-i\mathfrak{K}_{{1}}$&$-i\mathfrak{K}_{{0}}$&0&$0$&0\\
+ \hline 
+ \rule{0pt}{16pt}$-{K}^{{2}}$ &$-iP_{{2}}$&0&$-iP_{{0}}$&$i{J}^{{1}}$&$iJ^{{3}}$&0&$-i{K}^{{1}}$&$0$&${+iK^{{3}}}$&$0$&$-i\mathfrak{K}_{{2}}$&0&$-i\mathfrak{K}_{{0}}$&$0$&0\\
+ \hline 
+ \rule{0pt}{16pt}$J^{{3}}$ &0&$iP_{{2}}$&$-iP_{{1}}$&0&$-i{K}^{{2}}$&$i{K}^{{1}}$&0&$i{J}^{{1}}$&$i{J}^{{2}}$&0&0&$i\mathfrak{K}_{{2}}$&$-i\mathfrak{K}_{{1}}$&0&0\\
+ \hline 
+ \rule{0pt}{16pt}$-{J}^{{2}}$ &$0$&${+iP_{{3}}}$&0&$-i{K}^{{1}}$&${-iK^{{3}}}$&$0$&$-i{J}^{{1}}$&0&$iJ^{{3}}$&${iP_{{1}}}$&$0$&${+i\mathfrak{K}_{{3}}}$&0&${i\mathfrak{K}_{{1}}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}${J}^{{1}}$ &$0$&0&${+iP_{{3}}}$&$-i{K}^{{2}}$&$0$&${-iK^{{3}}}$&$-i{J}^{{2}}$&$-iJ^{{3}}$&0&${iP_{{2}}}$&$0$&0&${+i\mathfrak{K}_{{3}}}$&${i\mathfrak{K}_{{2}}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$-P_{{3}}$ &0&0&0&${iP_{{0}}}$&$0$&$0$&0&${-iP_{{1}}}$&${-iP_{{2}}}$&0&$2iK^{{3}}$&${2i{J}^{{2}}}$&${-2i{J}^{{1}}}$&$-2iD$&$-iP_{{3}}$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathfrak{K}_{{0}}$ &$-2iD$&$2i{K}^{{1}}$&$2i{K}^{{2}}$&${-i\mathfrak{K}_{{3}}}$&$i\mathfrak{K}_{{1}}$&$i\mathfrak{K}_{{2}}$&0&$0$&$0$&$-2iK^{{3}}$&0&0&0&0&$-i\mathfrak{K}_{{0}}$\\
+ \hline
+ \rule{0pt}{16pt}$\mathfrak{K}_{{1}}$ &$-2i{K}^{{1}}$&$2iD$&$-2iJ^{{3}}$&0&$i\mathfrak{K}_{{0}}$&0&$-i\mathfrak{K}_{{2}}$&${-i\mathfrak{K}_{{3}}}$&0&${-2i{J}^{{2}}}$&0&0&0&0&$-i\mathfrak{K}_{{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathfrak{K}_{{2}}$ &$-2i{K}^{{2}}$&$2iJ^{{3}}$&$2iD$&0&0&$i\mathfrak{K}_{{0}}$&$i\mathfrak{K}_{{1}}$&0&${-i\mathfrak{K}_{{3}}}$&${2i{J}^{{1}}}$&0&0&0&0&$-i\mathfrak{K}_{{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$-\mathfrak{K}_{{3}}$ &${2iK^{{3}}}$&${2i{J}^{{2}}}$&${-2i{J}^{{1}}}$&${i\mathfrak{K}_{{0}}}$&$0$&$0$&0&${-i\mathfrak{K}_{{1}}}$&${-i\mathfrak{K}_{{2}}}$&$2iD$&0&0&0&0&$i\mathfrak{K}_{{3}}$\\
+ \hline 
+ \rule{0pt}{16pt}$D$ &$-iP_{{0}}$&$-iP_{{1}}$&$-iP_{{2}}$&0&0&0&0&0&0&$iP_{{3}}$&$i\mathfrak{K}_{{0}}$&$i\mathfrak{K}_{{1}}$&$i\mathfrak{K}_{{2}}$&$-i\mathfrak{K}_{{3}}$&0\\
+ \hline
+\end{tabular}}
+%\caption{Full Conformal algebra in the Interpolation form}
+\end{table}
+\end{center}
+%%%%%%%%%%
+\end{widetext}
+\begin{widetext}
+\begin{center}
+\begin{table}[h!]
+\caption{\label{tabelinterpolationlfd}Full conformal algebra in LFD}
+\scalebox{0.6}{
+\begin{tabular}{ |c||c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c| } 
+ \hline
+ \rule{0pt}{16pt} & $P_{{+}}$ & $P_{{1}}$ & $P_{{2}}$ & $K^{{3}}$ & $-{F}^{{1}}$ & $-{F}^{{2}}$ & $J^{{3}}$ & $-{E}^{{1}}$ & $-{E}^{{2}}$ & $P_{{-}}$ & $\mathfrak{K}_{{+}}$ & $\mathfrak{K}_{{1}}$ & $\mathfrak{K}_{{2}}$ & $\mathfrak{K}_{{-}}$ & $D$\\
+ \hline
+  \hline
+ \rule{0pt}{16pt}  $P_{{+}}$ &0&$0$&$0$&$-iP_{{+}}$&$0$&$0$&0&$iP_{{1}}$&$iP_{{2}}$&0&$0$&$2i{F}^{{1}}$&$2i{F}^{{2}}$&$2i(D-K^{{3}})$&$iP_{{+}}$\\
+ \hline 
+ \rule{0pt}{16pt}$P_{{1}}$ &0&0&0&0&$iP_{{+}}$&0&$-iP_{{2}}$&$iP_{{-}}$&0&0&$-2i{F}^{{1}}$&$-2iD$&$-2iJ^{{3}}$&$-2i{E}^{{1}}$&$iP_{{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$P_{{2}}$ &0&0&0&0&0&$iP_{{+}}$&$iP_{{1}}$&0&$iP_{{-}}$&0&$-2i{F}^{{2}}$&$2iJ^{{3}}$&$-2iD$&$-2i{E}^{{2}}$&$iP_{{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$K^{{3}}$ &$iP_{{+}}$&0&0&0&$-i{F}^{{1}}$&$-i{F}^{{2}}$&0&$i{E}^{{1}}$&$i{E}^{{2}}$&$-iP_{{-}}$&$i\mathfrak{K}_{{+}}$&0&0&$-i\mathfrak{K}_{{-}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$-{F}^{{1}}$ &$0$&$-iP_{{+}}$&0&$i{F}^{{1}}$&0&$0$&$i{F}^{{2}}$&$iK^{{3}}$&$-iJ^{{3}}$&$-iP_{{1}}$&$0$&$-i\mathfrak{K}_{{+}}$&0&$-i\mathfrak{K}_{{1}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$-{F}^{{2}}$ &$0$&0&$-iP_{{+}}$&$i{F}^{{2}}$&$0$&0&$-i{F}^{{1}}$&$iJ^{{3}}$&$iK^{{3}}$&$-iP_{{2}}$&$0$&0&$-i\mathfrak{K}_{{+}}$&$-i\mathfrak{K}_{{2}}$&0\\
+ \hline 
+ \rule{0pt}{16pt}$J^{{3}}$ &0&$iP_{{2}}$&$-iP_{{1}}$&0&$-i{F}^{{2}}$&$i{F}^{{1}}$&0&$-i{E}^{{2}}$&$i{E}^{{1}}$&0&0&$i\mathfrak{K}_{{2}}$&$-i\mathfrak{K}_{{1}}$&0&0\\
+ \hline 
+ \rule{0pt}{16pt}$-{E}^{{1}}$ &$-iP_{{1}}$&$-iP_{{-}}$&0&$-i{E}^{{1}}$&$-iK^{{3}}$&$-iJ^{{3}}$&$i{E}^{{2}}$&0&$0$&$0$&$-i\mathfrak{K}_{{1}}$&$-i\mathfrak{K}_{{-}}$&0&$0$&0\\
+ \hline 
+ \rule{0pt}{16pt}$-{E}^{{2}}$ &$-iP_{{2}}$&0&$-iP_{{-}}$&$-i{E}^{{2}}$&$iJ^{{3}}$&$-iK^{{3}}$&$-i{E}^{{1}}$&$0$&0&$0$&$-i\mathfrak{K}_{{2}}$&0&$-i\mathfrak{K}_{{-}}$&$0$&0\\
+ \hline 
+ \rule{0pt}{16pt}$P_{{-}}$ &0&0&0&$iP_{{-}}$&$iP_{{1}}$&$iP_{{2}}$&0&$0$&$0$&0&$2i(D+K^{{3}})$&$2i{E}^{{1}}$&$2i{E}^{{2}}$&$0$&$iP_{{-}}$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathfrak{K}_{{+}}$ &$0$&$2i{F}^{{1}}$&$2i{F}^{{2}}$&$-i\mathfrak{K}_{{+}}$&$0$&$0$&0&$i\mathfrak{K}_{{1}}$&$i\mathfrak{K}_{{2}}$&$-2i(D+K^{{3}})$&0&0&0&0&$-i\mathfrak{K}_{{+}}$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathfrak{K}_{{1}}$ &$-2i{F}^{{1}}$&$2iD$&$-2iJ^{{3}}$&0&$i\mathfrak{K}_{{+}}$&0&$-i\mathfrak{K}_{{2}}$&$i\mathfrak{K}_{{-}}$&0&$-2i{E}^{{1}}$&0&0&0&0&$-i\mathfrak{K}_{{1}}$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathfrak{K}_{{2}}$ &$-2i{F}^{{2}}$&$2iJ^{{3}}$&$2iD$&0&0&$i\mathfrak{K}_{{+}}$&$i\mathfrak{K}_{{1}}$&0&$i\mathfrak{K}_{{-}}$&$-2i{E}^{{2}}$&0&0&0&0&$-i\mathfrak{K}_{{2}}$\\
+ \hline 
+ \rule{0pt}{16pt}$\mathfrak{K}_{{-}}$ &$-2i(D-K^{{3}})$&$2i{E}^{{1}}$&$2i{E}^{{2}}$&$i\mathfrak{K}_{{-}}$&$i\mathfrak{K}_{{1}}$&$i\mathfrak{K}_{{2}}$&0&$0$&$0$&$0$&0&0&0&0&$-i\mathfrak{K}_{{-}}$\\
+ \hline 
+ \rule{0pt}{16pt}$D$ &$-iP_{{+}}$&$-iP_{{1}}$&$-iP_{{2}}$&0&0&0&0&0&0&$-iP_{{-}}$&$i\mathfrak{K}_{{+}}$&$i\mathfrak{K}_{{1}}$&$i\mathfrak{K}_{{2}}$&$i\mathfrak{K}_{{-}}$&0\\
+ \hline
+\end{tabular}}
+%\caption{Full Conformal algebra in the Interpolation form}
+\end{table}
+\end{center}
+\end{widetext}
+
+\section{4-dimensional matrix representation of the conformal group} 
+\label{4x4}
+We extended the 4-dimensional matrix representation of the Poincar\'e group \cite{Bacry} to the conformal group by finding the appropriate 4-dimensional matrices that obey the conformal commutation relations mentioned in Appendix \ref{sec:appconformal}. The 4-dimensional matrix representations of the conformal group  are the following:
+\begin{align}
+    \text{(Rotations)}~~~M_{ij}&=\frac{1}{2}\epsilon_{ijk}\begin{pmatrix}
+    \sigma^{k}&0\\
+    0&\sigma^{k}
+    \end{pmatrix}_{(4\times4)}\\
+    \text{(Boosts)}~~~M_{k0}&=\frac{1}{2}\begin{pmatrix}
+    i\sigma^{k}&0\\
+    0&-i \sigma^{k}
+    \end{pmatrix}_{(4\times4)}\\
+    \text{(Translations)}~~~P_{\mu}&=\begin{pmatrix}
+    0&0\\
+    ig_{\mu\nu}\sigma^{\nu}&0
+    \end{pmatrix}_{(4\times4)}\\
+    \text{(SCT)}~~~\mathfrak{K}_{\mu}&=\begin{pmatrix}
+    0&-i\sigma^{\mu}\\
+    0&0
+    \end{pmatrix}_{(4\times4)}\\
+    \text{(Dilatation)}~~~D&=\frac{i}{2}\begin{pmatrix}
+    -\mathbb{I}&0\\
+    0&\mathbb{I}
+    \end{pmatrix}_{(4\times4)}
+\end{align}
+where $\sigma^{\mu}=(\mathbb{I}_{2\times2},\sigma_{2\times2})$. Explicitly,
+%\begin{widetext}
+\begin{align}\label{explicite44}
+    J^{1}&=\frac{1}{2}\begin{pmatrix}
+    0&1&0&0\\
+    1&0&0&0\\
+    0&0&0&1\\
+    0&0&1&0
+    \end{pmatrix}~;~~~~~~J^{2}=\frac{1}{2}\begin{pmatrix}
+    0&-i&0&0\\
+    i&0&0&0\\
+    0&0&0&-i\\
+    0&0&i&0
+    \end{pmatrix}~;\nonumber\\
+    J^{3}&=\frac{1}{2}\begin{pmatrix}
+    1&0&0&0\\
+    0&-1&0&0\\
+    0&0&1&0\\
+    0&0&0&-1
+    \end{pmatrix};~~~~~~K^{1}=\frac{1}{2}\begin{pmatrix}
+    0&i&0&0\\
+    i&0&0&0\\
+    0&0&0&-i\\
+    0&0&-i&0
+    \end{pmatrix}~;\nonumber\\
+    K^{2}&=\frac{1}{2}\begin{pmatrix}
+    0&1&0&0\\
+    -1&0&0&0\\
+    0&0&0&-1\\
+    0&0&1&0
+    \end{pmatrix}~;~~~~~~K^{3}=\frac{1}{2}\begin{pmatrix}
+    i&0&0&0\\
+    0&-i&0&0\\
+    0&0&-i&0\\
+    0&0&0&i
+    \end{pmatrix};\nonumber\\
+    P_0&=\begin{pmatrix}
+    0&0&0&0\\
+    0&0&0&0\\
+    i&0&0&0\\
+    0&i&0&0
+    \end{pmatrix}~;~~~~~~P_1=\begin{pmatrix}
+    0&0&0&0\\
+    0&0&0&0\\
+    0&-i&0&0\\
+    -i&0&0&0
+    \end{pmatrix}~;\nonumber\\
+    P_2&=\begin{pmatrix}
+    0&0&0&0\\
+    0&0&0&0\\
+    0&-1&0&0\\
+    1&0&0&0
+    \end{pmatrix}~;~~~~~~P_3=\begin{pmatrix}
+    0&0&0&0\\
+    0&0&0&0\\
+    -i&0&0&0\\
+    0&i&0&0
+    \end{pmatrix};\nonumber\\
+    \mathfrak{K}_0&=\begin{pmatrix}
+    0&0&-i&0\\
+    0&0&0&-i\\
+    0&0&0&0\\
+    0&0&0&0
+    \end{pmatrix}~;~~~~~~\mathfrak{K}_1=\begin{pmatrix}
+    0&0&0&-i\\
+    0&0&-i&0\\
+    0&0&0&0\\
+    0&0&0&0
+    \end{pmatrix}~;\nonumber\\
+    \mathfrak{K}_2&=\begin{pmatrix}
+    0&0&0&-1\\
+    0&0&1&0\\
+    0&0&0&0\\
+    0&0&0&0
+    \end{pmatrix}~;~~~~~~\mathfrak{K}_3=\begin{pmatrix}
+    0&0&-i&0\\
+    0&0&0&i\\
+    0&0&0&0\\
+    0&0&0&0
+    \end{pmatrix};\nonumber\\
+    D&=\frac{i}{2}\begin{pmatrix}
+    -1&0&0&0\\
+    0&-1&0&0\\
+    0&0&1&0\\
+    0&0&0&1
+    \end{pmatrix}.
+\end{align}
+%\end{widetext}
+Using these explicit $4\times4$ matrix representations of generators in the instant form and from the definition of light front generators, one can obtain the $4\times4$ matrix representations in LFD.
+
+\section{6-dimensional matrix representation of the conformal group} 
+\label{egSCT0}
+The explicit $6\time6$ projective space matrix representations are given in Eq.\eqref{66rep}. Following the correspondence between 6-dimensional projective space and 4-dimensional Minkowsky space Eq.\eqref{corres} $\&$ Eq.\eqref{origin}, we can find the effect of space-time by finite conformal transformation. For example, consider finite special conformal transformation in the time direction (for simplicity, we call as $SCT(0)$),
+\begin{align}
+      SCT(0)&=\exp({ib^0\mathfrak{K}_0})\\
+    SCT(0)&=\begin{pmatrix}
+    1&0&0&0&0&0\\
+    (b^0)^2&1&-\sqrt{2}b^0&0&0&0\\
+    -\sqrt{2}b^0&0&1&0&0&0\\
+    0&0&0&1&0&0\\
+    0&0&0&0&1&0\\
+    0&0&0&0&0&1
+    \end{pmatrix}
+  \end{align}
+then,
+\begin{align}
+    \begin{pmatrix}
+    \tilde{x}_{-2}'\\
+    \tilde{x}_{-1}'\\
+    \tilde{x}_{0}'\\
+    \tilde{x}_{1}'\\
+    \tilde{x}_{2}'\\
+    \tilde{x}_{3}'\\
+    \end{pmatrix}&=\begin{pmatrix}
+    1&0&0&0&0&0\\
+    (b^0)^2&1&-\sqrt{2}b^0&0&0&0\\
+    -\sqrt{2}b^0&0&1&0&0&0\\
+    0&0&0&1&0&0\\
+    0&0&0&0&1&0\\
+    0&0&0&0&0&1
+    \end{pmatrix}\begin{pmatrix}
+    \tilde{x}_{-2}\\
+    \tilde{x}_{-1}\\
+    \tilde{x}_{0}\\
+    \tilde{x}_{1}\\
+    \tilde{x}_{2}\\
+    \tilde{x}_{3}\\
+    \end{pmatrix}\\
+    \begin{pmatrix}
+    \tilde{x}_{-2}'\\
+    \tilde{x}_{-1}'\\
+    \tilde{x}_{0}'\\
+    \tilde{x}_{1}'\\
+    \tilde{x}_{2}'\\
+    \tilde{x}_{3}'\\
+    \end{pmatrix}&=\begin{pmatrix}
+    \tilde{x}_{-2}\\
+    (b^0)^2\tilde{x}_{-2}+\tilde{x}_{-1}-\sqrt{2}b^0\tilde{x}_{0}\\
+    -\sqrt{2}b^0\tilde{x}_{-2}+\tilde{x}_{0}\\
+    \tilde{x}_{1}\\
+    \tilde{x}_{2}\\
+    \tilde{x}_{3}\\
+    \end{pmatrix}\\
+\end{align}
+ The coordinates near the origin:
+ \begin{align}
+     x_0'&=\frac{-1}{\sqrt{2}}\frac{\tilde{x}_{0}'}{ \tilde{x}_{-1}'}\\
+     &=\frac{-1}{\sqrt{2}}\frac{-\sqrt{2}b^0\tilde{x}_{-2}+\tilde{x}_{0}}{ (b^0)^2\tilde{x}_{-2}+\tilde{x}_{-1}-\sqrt{2}b^0\tilde{x}_{0}}\\
+    &=\frac{-1}{\sqrt{2}}\frac{-\sqrt{2} b^0\tilde{x}_{-2}+\tilde{x}_{0}}{ (b^0)^2\tilde{x}_{-2}+\tilde{x}_{-1}-\sqrt{2}b^0\tilde{x}_{0}}\\
+    &=\frac{-1}{\sqrt{2}}\frac{-\sqrt{2}b^0\frac{\tilde{x}_{-2}}{\tilde{x}_{-1}}+\frac{\tilde{x}_{0}}{\tilde{x}_{-1}}}{ (b^0)^2\frac{\tilde{x}_{-2}}{\tilde{x}_{-1}}+1-\sqrt{2}b^0\frac{\tilde{x}_{0}}{\tilde{x}_{-1}}}\\
+    &=-\frac{1}{\sqrt{2}}\frac{-\sqrt{2}b^0x^2+\left(-\sqrt{2}x_0\right)}{ (b^0)^2x^2+1-\sqrt{2}b^0\left(-\sqrt{2}x_0\right)}\\
+    &=\frac{b^0x^2+x_0}{ (b^0)^2x^2+1+2b^0x_0}\\
+     \Aboxed{x'_0&=\frac{x_0+b_0x^2}{1+2b^0x_0+(b^0)^2x^2}}~.
+ \end{align}
+ which is the right transformation of $x^0$ by special conformal transformation.
+ 
+ 
+For the inverse coordinate,
+\begin{align}
+    y'_0&=\frac{\tilde{x}'_0}{\tilde{x}'^0.\tilde{x}'_0}=-\frac{1}{\sqrt{2}}\frac{\tilde{x}_{0}}{\tilde{x}_{-2}}=-\frac{1}{\sqrt{2}}\frac{-\sqrt{2}b^0\tilde{x}_{-2}+\tilde{x}_{0}}{\tilde{x}_{-2}}\\
+    &=b^0-\frac{\tilde{x}_{0}}{\sqrt{2}\tilde{x}_{-2}}=b^0+y_0\\
+    \Aboxed{y'_0&=y_0+b_0}
+\end{align}
+we have a simple translation at infinity. 
+  
+
+
+\bibliographystyle{apsrev4-1}
+
+%merlin.mbs apsrev4-1.bst 2010-07-25 4.21a (PWD, AO, DPC) hacked
+%Control: key (0)
+%Control: author (72) initials jnrlst
+%Control: editor formatted (1) identically to author
+%Control: production of article title (-1) disabled
+%Control: page (0) single
+%Control: year (1) truncated
+%Control: production of eprint (0) enabled
+\begin{thebibliography}{47}%
+\makeatletter
+\providecommand \@ifxundefined [1]{%
+ \@ifx{#1\undefined}
+}%
+\providecommand \@ifnum [1]{%
+ \ifnum #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \@ifx [1]{%
+ \ifx #1\expandafter \@firstoftwo
+ \else \expandafter \@secondoftwo
+ \fi
+}%
+\providecommand \natexlab [1]{#1}%
+\providecommand \enquote  [1]{``#1''}%
+\providecommand \bibnamefont  [1]{#1}%
+\providecommand \bibfnamefont [1]{#1}%
+\providecommand \citenamefont [1]{#1}%
+\providecommand \href@noop [0]{\@secondoftwo}%
+\providecommand \href [0]{\begingroup \@sanitize@url \@href}%
+\providecommand \@href[1]{\@@startlink{#1}\@@href}%
+\providecommand \@@href[1]{\endgroup#1\@@endlink}%
+\providecommand \@sanitize@url [0]{\catcode `\\12\catcode `\$12\catcode
+  `\&12\catcode `\#12\catcode `\^12\catcode `\_12\catcode `\%12\relax}%
+\providecommand \@@startlink[1]{}%
+\providecommand \@@endlink[0]{}%
+\providecommand \url  [0]{\begingroup\@sanitize@url \@url }%
+\providecommand \@url [1]{\endgroup\@href {#1}{\urlprefix }}%
+\providecommand \urlprefix  [0]{URL }%
+\providecommand \Eprint [0]{\href }%
+\providecommand \doibase [0]{http://dx.doi.org/}%
+\providecommand \selectlanguage [0]{\@gobble}%
+\providecommand \bibinfo  [0]{\@secondoftwo}%
+\providecommand \bibfield  [0]{\@secondoftwo}%
+\providecommand \translation [1]{[#1]}%
+\providecommand \BibitemOpen [0]{}%
+\providecommand \bibitemStop [0]{}%
+\providecommand \bibitemNoStop [0]{.\EOS\space}%
+\providecommand \EOS [0]{\spacefactor3000\relax}%
+\providecommand \BibitemShut  [1]{\csname bibitem#1\endcsname}%
+\let\auto@bib@innerbib\@empty
+
+\bibitem [{\citenamefont {Dirac}(1949)}]{Dirac1949}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Dirac,}~\bibnamefont
+  {P. A. M.}}\ }\href {\doibase 10.1103/RevModPhys.21.392} {\bibfield  {journal}
+  {\bibinfo  {journal} {Rev. Mod. Phys.}\ }\textbf {\bibinfo {volume} {21}},\
+  \bibinfo {pages} {392} (\bibinfo {year} {1949})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ji}\ and\ \citenamefont {Mitchell}(2001)}]{Ji2001}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Ji,}\ \bibnamefont
+  {Chueng-Ryong}}\ and\ \bibinfo {author} {\bibfnamefont {Mitchell,}~\bibnamefont {Chad}}.\
+  }\href {\doibase 10.1103/PhysRevD.64.085013} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {64}},\ \bibinfo
+  {pages} {085013} (\bibinfo {year} {2001})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Hornbostel}(1992)}]{Hornbostel1992}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Hornbostel,}~\bibnamefont
+  {Kent}}.\ }\href {\doibase 10.1103/PhysRevD.45.3781} {\bibfield
+  {journal} {\bibinfo  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume}
+  {45}},\ \bibinfo {pages} {3781} (\bibinfo {year} {1992})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ji}\ and\ \citenamefont {Rey}(1996)}]{Ji1996}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Ji,}\ \bibnamefont
+  {Chueng-Ryong}}\ and\ \bibinfo {author} {\bibfnamefont {Rey,}\ \bibnamefont {Soo-Jong}}.\
+  }\href {\doibase 10.1103/PhysRevD.53.5815} {\bibfield  {journal} {\bibinfo
+  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume} {53}},\ \bibinfo
+  {pages} {5815} (\bibinfo {year} {1996})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ji}\ and\ \citenamefont {Suzuki}(2012)}]{Ji2012}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Ji,}\ \bibnamefont
+  {Chueng-Ryong}}\ and\ \bibinfo {author} {\bibfnamefont {Suzuki,}\ \bibnamefont
+  {Alfredo Takashi}}.\ }\href {\doibase 10.1103/PhysRevD.87.065015} {\bibfield
+  {journal} {\bibinfo  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume}
+  {87}},\ \bibinfo {pages} {065015} (\bibinfo {year} {2013})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Ji}\ , \citenamefont{Li}  and\ \citenamefont {Suzuki}(2015)}]{Ji2015EM}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Ji,}\ \bibnamefont
+  {Chueng-Ryong}} and\ \bibinfo {author} {\bibfnamefont {Li,}\ \bibnamefont
+  {Ziyue}} and\ \bibinfo {author} {\bibfnamefont {Suzuki,}\ \bibnamefont
+  {Alfredo Takashi}}.\ }\href {\doibase 10.1103/PhysRevD.91.065020} {\bibfield
+  {journal} {\bibinfo  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume}
+  {91}},\ \bibinfo {pages} {065020} (\bibinfo {year} {2015})}\BibitemShut {NoStop}%  
+\bibitem [{\citenamefont {Li}\ , \citenamefont{An}  and\ \citenamefont {Ji}(2015)}]{Ji2015SP}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Li,}\ \bibnamefont
+  {Ziyue}} and\ \bibinfo {author} {\bibfnamefont {An,}\ \bibnamefont
+  {Murat}} and\ \bibinfo {author} {\bibfnamefont {Ji,}\ \bibnamefont
+  {Chueng-Ryong}}.\ }\href {\doibase 10.1103/PhysRevD.92.105014} {\bibfield
+  {journal} {\bibinfo  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume}
+  {92}},\ \bibinfo {pages} {105014} (\bibinfo {year} {2015})}\BibitemShut {NoStop}% 
+\bibitem [{\citenamefont {Ji}\ , \citenamefont{Li}\ , \citenamefont{Ma}  and\ \citenamefont {Suzuki}(2018)}]{Ji2018QED}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Ji,}\ \bibnamefont
+  {Chueng-Ryong}} and\ \bibinfo {author} {\bibfnamefont {Li,}\ \bibnamefont
+  {Ziyue}} and\ \bibinfo {author} {\bibfnamefont {Ma,}\ \bibnamefont
+  {Bailing}} and\ \bibinfo {author} {\bibfnamefont {Suzuki,}\ \bibnamefont
+  {Alfredo Takashi}}.\ }\href {\doibase 10.1103/PhysRevD.98.036017} {\bibfield
+  {journal} {\bibinfo  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume}
+  {98}},\ \bibinfo {pages} {036017} (\bibinfo {year} {2018})}\BibitemShut {NoStop}% 
+\bibitem [{\citenamefont {Ma}\ and\ \citenamefont {Ji}(2021)}]{Ji2021QCD}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Ma,}\ \bibnamefont
+  {Bailing}}\ and\ \bibinfo {author} {\bibfnamefont {Ji,}\ \bibnamefont
+  {Chueng-Ryong}}.\ }\href {\doibase 10.1103/PhysRevD.104.036004} {\bibfield
+  {journal} {\bibinfo  {journal} {Phys. Rev. D}\ }\textbf {\bibinfo {volume}
+  {104}},\ \bibinfo {pages} {036004} (\bibinfo {year} {2021})}\BibitemShut {NoStop}% 
+\bibitem [{\citenamefont {Francesco}\ and\ \citenamefont
+  {Mathieu}(1997)}]{Francesco}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Di}\ \bibnamefont
+  {Francesco}},\ \bibinfo {author} {\bibfnamefont {P.,}\ \bibnamefont
+  {Mathieu}} ,\ \bibinfo {author} {\bibfnamefont {P.,}\ \bibnamefont
+  {Sénéchal,}}\ D. (\bibinfo {year} {1997}). } Global Conformal Invariance. In:\ \href {\doibase 10.1007/978-1-4612-2256-9_4} {\emph {\bibinfo
+  {booktitle} {Conformal Field Theorys}}},\ \bibinfo {series} {Graduate Texts in Contemporary Physics.}\ \bibinfo
+  {publisher} {Springer},\ \bibinfo {address} {New York, NY}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Blumenhagen}\ and\ \citenamefont
+  {Plauschinn}(2009)}]{Blumenhagen}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Blumenhagen,}\ \bibnamefont
+  {R.}},\ \bibinfo {author} {\bibfnamefont {Plauschinn,}\ \bibnamefont
+  {E.}} (\bibinfo {year} {2009}). } Basics in Conformal Field Theory. In:\ \href {\doibase 10.1007/978-3-642-00450-6_2} {\emph {\bibinfo
+  {booktitle} {Introduction to Conformal Field Theory}}},\ \bibinfo {series} {Lecture Notes in Physics, vol 779.}\ \bibinfo
+  {publisher} {Springer},\ \bibinfo {address} {, Berlin, Heidelberg}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Bacry}\  and\ \citenamefont {Suyts}(1965)}]{Bacry}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Bacry,}\ \bibnamefont
+  {H.}},\ \bibinfo {author} {\bibfnamefont {Suyts,}\ \bibnamefont
+  {J.}},\ }{\href {\doibase 10.1007/BF02783366} {\bibfield
+  {journal} {\bibinfo  {journal} {Remarks on an Enlarged Poincaré Group: InhomogeneousSL(6, C) Group.}\ }} Nuovo Cim \textbf {\bibinfo {volume}
+  {37}},\ \bibinfo {pages} {1702–1711} (\bibinfo {year} {1965})}\BibitemShut {NoStop}% 
+\bibitem [{\citenamefont {Dirac}(1936)}]{Dirac1936}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Dirac,}~\bibnamefont
+  {P. A. M.}}\ }\href {\doibase 10.2307/1968455} {\bibfield  {journal}
+  {\bibinfo  {journal} {Annals Math.}\ }\textbf {\bibinfo {volume} {37}},\
+  \bibinfo {pages} {429--442} (\bibinfo {year} {1936})}\BibitemShut {NoStop}%
+\bibitem [{\citenamefont {Hepner}(1962)}]{Hepner1962}%
+  \BibitemOpen
+  \bibfield  {author} {\bibinfo {author} {\bibfnamefont {Hepner,}~\bibnamefont
+  {W. A.}}\ }\href {\doibase 10.1007/BF02787046} {\bibfield  {journal}
+  {\bibinfo  {journal} {Nuovo Cim.}\ }\textbf {\bibinfo {volume} {26}},\
+  \bibinfo {pages} {351--368} (\bibinfo {year} {1962})}\BibitemShut {NoStop}%
+\bibitem http://www.physics.usu.edu/Wheeler/GaugeTheory/09Mar27zNotes.pdf
+\end{thebibliography}%
+\end{document}
+
